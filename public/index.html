@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ITS Group — Русская охота. Пилот 30 дней. Арктика −29 °C</title>
+<meta name="description" content="Электроподогрев и утепление для экстремального холода (до −40 °C). Подтверждённые арктические испытания. Пилотные изделия за 30 дней. Private label в Китае." />
+<meta name="theme-color" content="#0B0C0F" />
+
+<!-- Font: Segoe UI (system) -->
+
+<style>
+  :root{
+    --bg:#0B0C0F; --fg:#F4F6F9; --muted:#A9B0BD; --line:#1B1E25; --accent:#FFF;
+    --max:1200px; --pad:clamp(16px,4vw,32px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font:500 16px/1.6 'Segoe UI',system-ui,-apple-system,Roboto,Arial,'Noto Sans','Helvetica Neue',sans-serif}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  a{color:var(--fg);text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .container{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+  .section{padding:clamp(40px,9vw,64px) 0;border-top:1px solid var(--line)}
+  h1,h2,h3{margin:0 0 .6em}
+  h1{font-size:clamp(28px,5.4vw,56px);line-height:1.05;letter-spacing:-.02em}
+  h2{font-size:clamp(20px,3.2vw,28px);letter-spacing:.2px}
+  p.lead{color:var(--muted);max-width:900px;margin:.4em 0 0}
+  .btn{display:inline-flex;gap:10px;align-items:center;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:#10131A;color:var(--accent);font-weight:700}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 0 0 1px #2a2f37 inset,0 12px 40px rgba(255,255,255,.06)}
+  /* Header */
+  header{position:sticky;top:0;z-index:200;background:rgba(11,12,15,.72);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .head{height:64px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:800;letter-spacing:.2px}
+  nav a{padding:8px 10px;border-radius:8px}
+  nav{display:none;gap:6px}
+  @media(min-width:980px){nav{display:flex}}
+  .menu{display:inline-grid;place-items:center;width:40px;height:36px;border:1px solid var(--line);border-radius:8px;background:none;color:var(--fg)}
+  @media(min-width:980px){.menu{display:none}}
+  .theme{display:inline-grid;place-items:center;width:40px;height:36px;border:1px solid var(--line);border-radius:8px;background:#10131A;color:var(--fg);margin-left:8px}
+  .theme:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(0,0,0,.12)}
+  /* Off-canvas mobile menu (always styled; hidden by attribute) */
+  #mnav{position:fixed; top:0; right:0; bottom:0; width:min(100vw,420px);
+    display:flex; flex-direction:column; gap:0; padding:0;
+    background:var(--bg); border-left:1px solid var(--line);
+    z-index:210; transform:translateX(100%); visibility:hidden;
+    transition:transform .28s ease, visibility 0s linear .28s; pointer-events:auto}
+  #mnav[hidden]{display:none}
+  #mnav.open{ transform:translateX(0); visibility:visible; transition:transform .25s ease }
+  .mnav__header{display:flex;align-items:center;justify-content:space-between;padding:16px clamp(16px,6vw,24px);border-bottom:1px solid var(--line);position:sticky;top:0;background:inherit;z-index:1}
+  .mnav__title{font-weight:800}
+  .mnav__close{width:40px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;background:#10131A;color:var(--fg)}
+  .mnav__close:hover,.mnav__close:focus-visible{transform:translateY(-1px)}
+  .mnav__list{display:grid;gap:6px;padding:12px clamp(16px,6vw,24px)}
+  .mnav__link{display:block;padding:14px 12px;border:1px solid var(--line);border-radius:12px;background:#0E1117;color:var(--fg);font-weight:600}
+  .mnav__link:focus-visible,.mnav__link:hover{box-shadow:0 0 0 2px rgba(255,255,255,.06) inset}
+  .mnav__footer{margin-top:auto;padding:12px clamp(16px,6vw,24px) calc(12px + env(safe-area-inset-bottom))}
+  .mnav__cta{display:block;text-align:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#10131A;color:var(--accent);font-weight:800}
+  .nav-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:190; opacity:0; visibility:hidden; transition:opacity .2s ease }
+  .nav-overlay.show{ opacity:1; visibility:visible }
+
+  /* HERO */
+  .hero{position:relative;min-height:min(86vh,880px);display:grid;align-items:end;overflow:clip}
+  .hero .bg{position:absolute;inset:0;background:url('image/Winter hunting in the forest.jpg') center/cover no-repeat;filter:saturate(.9) contrast(.95)}
+  .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.58),rgba(11,12,15,.95) 65%)}
+  .hero .inner{position:relative;padding:96px 0}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .chip{font-size:13px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.02);color:#E9EDF6}
+
+  /* HERO — mobile tuning */
+  @media (max-width: 680px){
+    .hero{align-items:center;min-height:78vh}
+    .hero .bg{background-position:center 30%}
+    .hero .veil{background:linear-gradient(180deg,rgba(0,0,0,.66),rgba(11,12,15,.96) 70%)}
+    .hero .inner{
+      padding:56px 0 72px;
+      padding-top:calc(56px + env(safe-area-inset-top));
+      /* ensure side gutters on mobile */
+      padding-left: calc(var(--pad) + 8px + env(safe-area-inset-left));
+      padding-right: calc(var(--pad) + 8px + env(safe-area-inset-right));
+    }
+    h1{font-size:clamp(24px,6vw,32px)}
+    .chips{gap:6px}
+    .chip{font-size:12px;padding:5px 8px}
+  }
+
+  /* TWO COL GRID */
+  .grid{display:grid;gap:20px}
+  @media(min-width:920px){.grid{grid-template-columns:1.05fr .95fr;align-items:center}}
+  .frame{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0E1117}
+  .frame img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+
+  /* CARDS */
+  .cards{display:grid;gap:12px}
+  @media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
+  .card{border:1px solid var(--line);border-radius:14px;background:#0E1117;padding:16px}
+  .muted{color:var(--muted)}
+
+  /* PROCESS (improved) */
+  .steps{display:grid;gap:12px;margin-top:12px}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .step{position:relative;border:1px solid var(--line);border-radius:14px;background:#0E1117;padding:18px 16px 16px}
+  .step__badge{position:absolute;top:-10px;left:12px;width:36px;height:36px;border-radius:999px;background:#10131A;border:1px solid var(--line);display:grid;place-items:center;font-weight:800}
+  .step__title{margin:14px 0 8px;letter-spacing:.2px}
+  .step__list{margin:0 0 10px 0;color:var(--muted);padding-left:18px}
+  .step__list li{margin:0 0 4px 0}
+  .step__out{border-top:1px dashed var(--line);padding-top:10px;color:#DDE4F2}
+  .step__out-key{display:inline-block;color:#9FB0C7;margin-right:6px}
+
+  /* CASE thumbs (real size, no crop) */
+  .thumbs{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start}
+  .thumbs img{width:auto;height:auto;max-width:100%;border-radius:12px;border:1px solid var(--line);background:#0E1117}
+  /* Desktop: masonry-style columns for better layout */
+  @media (min-width: 680px){
+    .thumbs{display:block;column-count:2;column-gap:12px}
+    .thumbs img{display:block;margin:0 0 12px;break-inside:avoid}
+  }
+  @media (min-width: 1100px){
+    .thumbs{column-count:3}
+  }
+
+  /* FILTERS + GALLERY */
+  .filters{display:flex;gap:8px;overflow-x:auto;padding:6px 0 10px;scrollbar-width:thin}
+  .filter-btn{white-space:nowrap;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#0E1117;color:var(--fg);font-weight:600}
+  .filter-btn[aria-pressed="true"]{background:#10131A;color:#FFF;box-shadow:0 0 20px rgba(255,255,255,.06)}
+  .gallery{display:grid;gap:10px}
+  @media(min-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1100px){.gallery{grid-template-columns:repeat(3,1fr)}}
+  .gcard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0E1117}
+  .gcard img{width:100%;aspect-ratio:3/2;object-fit:contain;display:block;background:#0E1117}
+  .cap{padding:10px 12px;border-top:1px solid var(--line);font-size:14px;color:#DDE4F2;background:#0E1117}
+  .more{margin-top:12px;display:flex;justify-content:center}
+
+  /* Catalog section spacing */
+  .cat + .cat{margin-top:clamp(24px,6vw,48px)}
+
+  /* Prevent body scroll when off-canvas open */
+  body.offcanvas-open{ overflow:hidden }
+
+  /* CTA alignment */
+  #cta .container{ text-align:center }
+  #cta .lead{ margin-left:auto; margin-right:auto }
+
+  /* Light theme overrides */
+  :root[data-theme="light"]{
+    --bg:#F8FAFC; --fg:#0F1115; --muted:#4B5563; --line:#E5E7EB; --accent:#111827;
+  }
+  :root[data-theme="light"] header{background:rgba(255,255,255,.82)}
+  :root[data-theme="light"] .btn{background:#fff;color:var(--accent);border-color:var(--line)}
+  :root[data-theme="light"] .frame,
+  :root[data-theme="light"] .card,
+  :root[data-theme="light"] .gcard,
+  :root[data-theme="light"] .cap,
+  :root[data-theme="light"] .step,
+  :root[data-theme="light"] .filter-btn{background:#fff}
+  :root[data-theme="light"] .gcard img{background:#fff}
+  :root[data-theme="light"] .chip{background:rgba(0,0,0,.04);color:#111}
+  :root[data-theme="light"] .filter-btn[aria-pressed="true"]{background:#f3f4f6;color:#111}
+  :root[data-theme="light"] .theme{background:#fff}
+  /* Improve text contrast on light theme */
+  :root[data-theme="light"] .cap{color:#374151}
+  :root[data-theme="light"] .step__out{color:#1F2937}
+  :root[data-theme="light"] .step__out-key{color:#6B7280}
+  :root[data-theme="light"] .step__badge{background:#111827;color:#fff;border-color:#D1D5DB}
+  /* Mobile off-canvas menu in light theme */
+  :root[data-theme="light"] #mnav{background:#ffffff; color:#0F1115; border-left:1px solid #E5E7EB}
+  :root[data-theme="light"] .mnav__link{background:#fff;color:#0F1115}
+  :root[data-theme="light"] .mnav__cta{background:#111827;color:#ffffff;border-color:#D1D5DB}
+  :root[data-theme="light"] .mnav__close{background:#111827;color:#ffffff;border-color:#D1D5DB}
+  :root[data-theme="light"] .nav-overlay{background:rgba(0,0,0,.35)}
+  /* Keep hero text legible on dark overlay even in light theme */
+  :root[data-theme="light"] .hero .inner,
+  :root[data-theme="light"] .hero h1,
+  :root[data-theme="light"] .hero .lead{color:#F9FAFB}
+  :root[data-theme="light"] .hero .chip{background:rgba(255,255,255,.08);color:#F9FAFB;border-color:rgba(255,255,255,.25)}
+
+  /* FOOTER */
+  footer{padding:28px 0;color:#99A3B5;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<a class="sr-only" href="#main">Пропустить к содержанию</a>
+
+<header>
+  <div class="container head">
+    <div class="brand">ITS Group / ООО «ИНТЕРТЕХСЕРВИС»</div>
+    <nav aria-label="Навигация">
+      <a href="#about">Кто мы</a>
+      <a href="#tech">Технологии</a>
+      <a href="#case">Кейс</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#process">Процесс</a>
+      <a href="#contacts">Контакты</a>
+      <a class="btn" href="#cta">Пилот 30 дней</a>
+    </nav>
+    <button class="theme" type="button" aria-pressed="false" aria-label="Переключить тему">☾</button>
+    <button class="menu" type="button" aria-controls="mnav" aria-expanded="false" aria-label="Открыть меню">☰</button>
+  </div>
+  <nav id="mnav" hidden aria-label="Мобильное меню">
+    <div class="mnav__header">
+      <div class="mnav__title">Меню</div>
+      <button class="mnav__close" type="button" aria-label="Закрыть меню">✕</button>
+    </div>
+    <div class="mnav__list">
+      <a class="mnav__link" href="#about">Кто мы</a>
+      <a class="mnav__link" href="#tech">Технологии</a>
+      <a class="mnav__link" href="#case">Кейс</a>
+      <a class="mnav__link" href="#catalog">Каталог</a>
+      <a class="mnav__link" href="#process">Процесс</a>
+      <a class="mnav__link" href="#contacts">Контакты</a>
+    </div>
+    <div class="mnav__footer">
+      <a class="mnav__cta" href="#cta">Пилот 30 дней</a>
+    </div>
+  </nav>
+</header>
+
+<!-- overlay for mobile menu -->
+<div id="overlay" class="nav-overlay" hidden></div>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg" role="img" aria-label="Winter hunting in the forest"></div>
+    <div class="veil" aria-hidden="true"></div>
+    <div class="container inner">
+      <h1>Создаём продукцию, которая выдерживает Арктику и усиливает ваш бренд</h1>
+      <p class="lead">Высокотехнологичные нагревательные и утепляющие изделия для экстремально низких температур (до −40 °C). Private label-производство для «Русская охота» на сертифицированных фабриках в Китае.</p>
+      <div class="chips">
+        <span class="chip">Электроподогрев</span><span class="chip">Теплоизоляция</span><span class="chip">Антистатик / ОГНЕСТОЙКОСТЬ</span><span class="chip">Взрывозащита</span><span class="chip">—29 °C / ветер 26 м/с — испытано</span>
+      </div>
+      <div style="margin-top:20px"><a class="btn" href="#cta">Запросить пилот за 30 дней</a></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container grid">
+      <div>
+        <h2>Кто мы</h2>
+        <p class="lead">Мы — группа компаний ITS Group, в составе — ООО «ИНТЕРТЕХСЕРВИС». Более 15 лет помогаем промышленности и ритейлу выпускать одежду и обувь для сурового климата: от спецодежды до премиального outdoor.</p>
+        <p class="lead">Наша специализация — решения с электроподогревом и продуманной теплоизоляцией, адаптированные под эксплуатацию в Сибири и на Крайнем Севере.</p>
+        <p class="lead">Private label-производство в Китае • Сертифицированные фабрики • Контроль качества на каждом этапе</p>
+      </div>
+      <figure class="frame"><img src="image/Extreme conditions.jpg" alt="Extreme conditions" loading="lazy" decoding="async" width="1600" height="1000"></figure>
+    </div>
+  </section>
+
+  <!-- TECH -->
+  <section class="section" id="tech">
+    <div class="container">
+      <h2>Технологии и экспертиза</h2>
+      <p class="lead">Продукция создаётся при участии профессора Цюй Юаньфана (曲远方). Фокус: эффективность электроподогрева, равномерность теплопередачи, безопасность.</p>
+      <div class="cards" role="list">
+        <article class="card" role="listitem"><h3>До −40 °C</h3><p class="muted">Работа в экстремальном холоде.</p></article>
+        <article class="card" role="listitem"><h3>Взрывозащита и антистатик</h3><p class="muted">Версии для опасных зон.</p></article>
+        <article class="card" role="listitem"><h3>Материалы</h3><p class="muted">Водо-/ветронепроницаемые, огнестойкие, износостойкие.</p></article>
+        <article class="card" role="listitem"><h3>Долговечность ×1.4</h3><p class="muted">Средний прирост ресурса.</p></article>
+        <article class="card" role="listitem"><h3>Стабильность −20/−40 °C</h3><p class="muted">Надёжность нагревательных зон и АКБ.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE -->
+  <section class="section" id="case">
+    <div class="container">
+      <h2>Кейс «Газпром нефть шельф»</h2>
+      <p class="lead">Костюмы и обувь с электроподогревом прошли полевые испытания при −29 °C и ветре 26 м/с — все ключевые показатели защитных свойств подтверждены («хорошо»). При этом вес комплектов снижен на 500–1000 г без потери теплоэффективности.</p>
+      <p class="lead" style="margin-top:8px">Нюансы и решения:</p>
+      <ul class="muted" style="margin-top:4px">
+        <li>Следы нефтепродуктов после стирки → добавили масло‑защитное покрытие ткани.</li>
+        <li>Уязвимость носков кожаных сапог по насту → внедрили резиновый усиленный носок.</li>
+      </ul>
+      <div class="thumbs" aria-label="Фото кейса">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_1.png" alt="Тестирование защитной одежды в Арктике — кадр 1" loading="lazy" decoding="async" width="800" height="600">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_2.png" alt="Тестирование защитной одежды в Арктике — кадр 2" loading="lazy" decoding="async" width="800" height="600">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_3.png" alt="Тестирование защитной одежды в Арктике — кадр 3" loading="lazy" decoding="async" width="800" height="600">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_4.png" alt="Тестирование защитной одежды в Арктике — кадр 4" loading="lazy" decoding="async" width="800" height="600">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_5.png" alt="Тестирование защитной одежды в Арктике — кадр 5" loading="lazy" decoding="async" width="800" height="600">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_6.png" alt="Тестирование защитной одежды в Арктике — кадр 6" loading="lazy" decoding="async" width="800" height="600">
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE CAN DO -->
+  <section class="section">
+    <div class="container">
+      <h2>Что можем создать для «Русская охота»</h2>
+      <ul class="muted">
+        <li>Куртки, жилеты, брюки — утеплённые и с электроподогревом</li>
+        <li>Обувь, перчатки, палатки, аксессуары с обогревом</li>
+        <li>Антистатик/огнестойкость, версии с взрывозащитой</li>
+        <li>Тиражи от пилота до серии • Private label • QC • логистика • постгарантия</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="container">
+      <h2>Процесс (30 дней до пилота)</h2>
+      <div class="steps" role="list" aria-label="Этапы процесса">
+        <article class="step" role="listitem">
+          <div class="step__badge" aria-hidden="true">1</div>
+          <h3 class="step__title">Аналитика</h3>
+          <ul class="step__list">
+            <li>Аудит задач и аудитории</li>
+            <li>Материалы и конфигурации под климат/сценарии</li>
+          </ul>
+          <div class="step__out"><span class="step__out-key">Выход:</span> ТЗ и карта коллекции</div>
+        </article>
+        <article class="step" role="listitem">
+          <div class="step__badge" aria-hidden="true">2</div>
+          <h3 class="step__title">Пилот 30 дней</h3>
+          <ul class="step__list">
+            <li>Дизайн → образцы → валидация посадки и тепла</li>
+            <li>Морозные и износостойкие тесты</li>
+          </ul>
+          <div class="step__out"><span class="step__out-key">Выход:</span> опытные образцы и отчёт</div>
+        </article>
+        <article class="step" role="listitem">
+          <div class="step__badge" aria-hidden="true">3</div>
+          <h3 class="step__title">Производство</h3>
+          <ul class="step__list">
+            <li>Сертифицированные фабрики в Китае</li>
+            <li>QC, логистика, сервис и ЗИП</li>
+          </ul>
+          <div class="step__out"><span class="step__out-key">Выход:</span> поставка и поддержка</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section class="section" id="catalog">
+    <div class="container">
+      <h2>Каталог</h2>
+      <div id="catalog-root"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="cta" style="text-align:center">
+    <div class="container">
+      <h2>Готовы запустить пилот за 30 дней</h2>
+      <p class="lead">Покажем, как коллекция «Русская охота» выглядит на витрине и работает в поле.</p>
+      <p class="lead">Пожалуйста, пришлите письмо на <a href="mailto:info@intertech-service.ru">info@intertech-service.ru</a> или позвоните по номеру <a href="tel:+78002500324">8-800-250-03-24</a>.</p>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section class="section" id="contacts">
+    <div class="container">
+      <h2>Контакты</h2>
+      <div>ITS Group / ООО «ИНТЕРТЕХСЕРВИС»</div>
+      <div>Адрес: г. Краснодар, ул. Кубанская Набережная, д.7, офис 305</div>
+      <div>Тел.: <a href="tel:+78002500324">8-800-250-03-24</a> • <a href="tel:+79181800443">8-918-180-04-43</a></div>
+      <div>E-mail: <a href="mailto:info@intertech-service.ru">info@intertech-service.ru</a></div>
+      <div>Сайт: <a href="https://intertech-service.ru" target="_blank" rel="noopener">intertech-service.ru</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2025 ITS Group / ООО «ИНТЕРТЕХСЕРВИС»</div>
+</footer>
+
+<script>
+  // мобильное меню — выезжающее справа
+  (function(){
+    const btn=document.querySelector('.menu');
+    const nav=document.getElementById('mnav');
+    const overlay=document.getElementById('overlay');
+    const closeBtn=document.querySelector('.mnav__close');
+    if(!btn||!nav||!overlay) return;
+    const open=()=>{
+      nav.classList.add('open');
+      nav.removeAttribute('hidden');
+      overlay.classList.add('show');
+      overlay.removeAttribute('hidden');
+      btn.setAttribute('aria-expanded','true');
+      document.body.classList.add('offcanvas-open');
+    };
+    const close=()=>{
+      nav.classList.remove('open');
+      overlay.classList.remove('show');
+      btn.setAttribute('aria-expanded','false');
+      // отложенно скрываем, чтобы не рвало анимацию
+      setTimeout(()=>{ nav.setAttribute('hidden',''); overlay.setAttribute('hidden',''); document.body.classList.remove('offcanvas-open'); }, 280);
+    };
+    btn.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      const isOpen=nav.classList.contains('open');
+      isOpen ? close() : open();
+    });
+    if(closeBtn){ closeBtn.addEventListener('click',(e)=>{ e.stopPropagation(); close(); }); }
+    nav.addEventListener('click',(e)=>{ e.stopPropagation(); if(e.target.tagName==='A') close(); });
+    document.addEventListener('click',()=>{ if(nav.classList.contains('open')) close(); });
+    overlay.addEventListener('click',close);
+    nav.addEventListener('click',(e)=>{ if(e.target.tagName==='A') close(); });
+    window.addEventListener('keydown',(e)=>{ if(e.key==='Escape' && nav.classList.contains('open')) close(); });
+  })();
+
+  // переключатель темы (light/dark) с сохранением в localStorage
+  (function(){
+    const KEY='theme';
+    const btn=document.querySelector('.theme');
+    if(!btn) return;
+    const metaTheme=document.querySelector('meta[name="theme-color"]');
+    const apply=(mode)=>{
+      if(mode==='light'){
+        document.documentElement.setAttribute('data-theme','light');
+        btn.setAttribute('aria-pressed','true'); btn.textContent='☀';
+        if(metaTheme) metaTheme.setAttribute('content','#F8FAFC');
+      }else{
+        document.documentElement.removeAttribute('data-theme');
+        btn.setAttribute('aria-pressed','false'); btn.textContent='☾';
+        if(metaTheme) metaTheme.setAttribute('content','#0B0C0F');
+      }
+    };
+    const stored=localStorage.getItem(KEY);
+    const preferred = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    apply(preferred);
+    btn.addEventListener('click',()=>{
+      const current=document.documentElement.getAttribute('data-theme')==='light' ? 'light' : 'dark';
+      const next=current==='light' ? 'dark' : 'light';
+      localStorage.setItem(KEY,next); apply(next);
+    });
+  })();
+
+  // Подписи: сначала проверяем словарь точных переводов, иначе — эвристика
+  const CAPTION_OVERRIDES = {
+    "Ambush in the forest.jpg": "Засада в лесу",
+    "Arctic patrol.jpg": "Арктический патруль",
+    "Battery packs with cables for heating clothing and footwear.png": "Аккумуляторные блоки с кабелями для подогрева одежды и обуви",
+    "Camouflage tactical boot with reinforced sole and side pocket.png": "Камуфлированный тактический ботинок с усиленной подошвой и боковым карманом",
+    "Camouflaged insulated suit (jacket + pants).png": "Камуфлированный утеплённый костюм (куртка + брюки)",
+    "Extreme conditions.jpg": "Экстремальные условия",
+    "Forest hunter.jpg": "Лесной охотник",
+    "Functional tactical vest with mounts and battery pocket.png": "Функциональный тактический жилет с креплениями и карманом для аккумулятора",
+    "Heated insulated vest.png": "Утеплённый жилет с подогревом",
+    "Heated leather glove.png": "Кожаная перчатка с подогревом",
+    "Heated protective back belt.png": "Защитный пояс для спины с подогревом",
+    "Heated thermal vest (back view).png": "Тепловой жилет с подогревом (вид сзади)",
+    "High camouflage boot with reinforced sole.png": "Высокий камуфляжный ботинок с усилённой подошвой",
+    "High camouflage boots with reinforced sole and side pocket.png": "Высокие камуфляжные ботинки с усилённой подошвой и боковым карманом",
+    "High hunting boot with reinforced sole and yellow-black upper.png": "Высокий охотничий ботинок с усилённой подошвой и чёрно‑жёлтым верхом",
+    "High hunting boots with reinforced sole and bright yellow-black inserts.png": "Высокие охотничьи ботинки с усилённой подошвой и яркими чёрно‑жёлтыми вставками",
+    "Hunter in the snowy forest.jpg": "Охотник в снежном лесу",
+    "Hunter’s trail – hunter with a dog in the winter forest.jpg": "След охотника — охотник с собакой в зимнем лесу",
+    "Hunting in the autumn forest.jpg": "Охота в осеннем лесу",
+    "Hunting in the winter forest.jpg": "Охота в зимнем лесу",
+    "In the wild.jpg": "В дикой природе",
+    "Inner insulated liner (black jacket).png": "Внутренняя утеплённая подстёжка (чёрная куртка)",
+    "Inside view of orange and blue work jacket with insulated lining and functional pockets for Gazprom Neft.png": "Внутренняя сторона оранжево‑синей рабочей куртки с утеплителем и функциональными карманами (Газпром нефть)",
+    "Insulated camouflage bomber jacket (digital pattern).png": "Утеплённый камуфляжный бомбер (цифровой узор)",
+    "Insulated camouflage pants (digital pattern).png": "Утеплённые камуфляжные брюки (цифровой узор)",
+    "Insulated Gazprom Neft jacket with high level of protection.png": "Утеплённая куртка Газпром нефть с высоким уровнем защиты",
+    "Insulated Gazprom Neft overalls.png": "Утеплённый комбинезон Газпром нефть",
+    "Insulated jacket with hood (Arctic Storm series).png": "Утеплённая куртка с капюшоном (серия Arctic Storm)",
+    "Insulated leather boots with high shaft and soft lining.png": "Утеплённые кожаные ботинки с высоким голенищем и мягкой подкладкой",
+    "Insulated leather gloves with protective inserts and heating.png": "Утеплённые кожаные перчатки с защитными вставками и подогревом",
+    "Insulated sleeveless vests (men’s and women’s versions), front and back views.png": "Утеплённые жилеты без рукавов (мужская и женская версии), вид спереди и сзади",
+    "Insulated vest in camouflage (digital pattern).png": "Утеплённый жилет в камуфляже (цифровой узор)",
+    "Insulated winter jacket with hood and reflective stripes.png": "Утеплённая зимняя куртка с капюшоном и светоотражающими полосами",
+    "Insulated work pants in orange and blue with reflective elements for Gazprom Neft.png": "Утеплённые рабочие брюки оранжево‑синего цвета со светоотражающими элементами (Газпром нефть)",
+    "Insulated work vest (blue).png": "Утеплённый рабочий жилет (синий)",
+    "Insulated work vest.png": "Утеплённый рабочий жилет",
+    "Leather fingerless glove with protective inserts and heating.png": "Кожаная перчатка без пальцев с защитными вставками и подогревом",
+    "Leather short fingerless gloves.jpg": "Короткие кожаные перчатки без пальцев",
+    "Leather short gloves with protective inserts and heating.png": "Короткие кожаные перчатки с защитными вставками и подогревом",
+    "Lightweight protective vest with adjustable straps.png": "Лёгкий защитный жилет с регулируемыми лямками",
+    "Long insulated leather gloves with reinforced palm and adjustable strap.png": "Длинные утеплённые кожаные перчатки с усилённой ладонью и регулируемым ремешком",
+    "Northern route.jpg": "Северный маршрут",
+    "Orange and blue work jacket with hood and Gazprom Neft logo on the back.png": "Оранжево‑синяя рабочая куртка с капюшоном и логотипом Газпром нефть на спине",
+    "Orthopedic back support belt with shoulder fixation.png": "Ортопедический пояс для спины с фиксацией плеч",
+    "Protective fingerless glove paired with jacket with reflective stripes.png": "Защитная перчатка без пальцев в комплекте с курткой со светоотражающими полосами",
+    "Protective fingerless gloves with heating, paired with insulated jacket with reflective stripes.png": "Защитные перчатки без пальцев с подогревом в комплекте с утеплённой курткой со светоотражающими полосами",
+    "Protective heated vest with adjustable straps.png": "Защитный жилет с подогревом и регулируемыми лямками",
+    "Protective leather gloves with heating, reinforced inserts, and adjustable wrist strap.png": "Защитные кожаные перчатки с подогревом, усилёнными вставками и регулируемым ремешком на запястье",
+    "Readiness for the harsh nature.jpg": "Готовность к суровой природе",
+    "Real testing. Work of Gazprom Neft specialists.jpg": "Реальные испытания. Работа специалистов Газпром нефть",
+    "Set of insulated protective clothing with hood and reflective elements.png": "Комплект утеплённой защитной одежды с капюшоном и светоотражающими элементами",
+    "Sleeping bag (folded).png": "Спальный мешок (сложенный)",
+    "Sleeping bag (unfolded).png": "Спальный мешок (разложенный)",
+    "Symbol of endurance.jpg": "Символ выносливости",
+    "Tactical insulated boots with heating and battery pocket.png": "Тактические утеплённые ботинки с подогревом и карманом для аккумулятора",
+    "Tactical leather boots with heating and side zipper.png": "Тактические кожаные ботинки с подогревом и боковой молнией",
+    "Tent for extreme conditions.png": "Палатка для экстремальных условий",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_1.png": "Тестирование защитной одежды в арктических условиях — кадр 1",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_2.png": "Тестирование защитной одежды в арктических условиях — кадр 2",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_3.png": "Тестирование защитной одежды в арктических условиях — кадр 3",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_4.png": "Тестирование защитной одежды в арктических условиях — кадр 4",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_5.png": "Тестирование защитной одежды в арктических условиях — кадр 5",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_6.png": "Тестирование защитной одежды в арктических условиях — кадр 6",
+    "Use of protective clothing in industrial conditions.jpg": "Использование защитной одежды в промышленных условиях",
+    "Vest with built-in heating system.png": "Жилет со встроенной системой подогрева",
+    "Warm jacket with reflective stripes and reinforced protective gloves.png": "Тёплая куртка со светоотражающими полосами и усилёнными защитными перчатками",
+    "Winter hunting in the forest.jpg": "Зимняя охота в лесу",
+    "Winter insulated boots with heating and battery pocket.png": "Зимние утеплённые ботинки с подогревом и карманом для аккумулятора",
+    "Winter insulated suit (jacket and pants) Gazprom Neft with heating.png": "Зимний утеплённый костюм (куртка и брюки) Газпром нефть с подогревом",
+    "Winter pants with insulation and reflective stripes.png": "Зимние утеплённые брюки со светоотражающими полосами",
+    "Winter patrol – person in white camouflage with a weapon by the river.jpg": "Зимний патруль — человек в белом камуфляже с оружием у реки",
+    "Winter reconnaissance.jpg": "Зимняя разведка",
+    "Winter suit with extended jacket and hood, back view, with reflective stripes.png": "Зимний костюм с удлинённой курткой и капюшоном, вид сзади, со светоотражающими полосами",
+    "Winter suit with extended jacket and hood, with reflective stripes, side view.png": "Зимний костюм с удлинённой курткой и капюшоном, вид сбоку, со светоотражающими полосами",
+    "Winter suits with jacket and pants, reflective stripes, men’s and women’s set.png": "Зимние костюмы (куртка и брюки), светоотражающие полосы, мужской и женский комплект",
+    "Winter uniform suit (jacket + pants).png": "Зимний форменный костюм (куртка + брюки)",
+    "Work jacket in orange and blue with pockets, reflective elements, and Gazprom Neft corporate patch.png": "Рабочая куртка оранжево‑синяя с карманами, светоотражающими элементами и корпоративной нашивкой Газпром нефть"
+  };
+
+  // подпись с учётом словаря
+  function caption(name){
+    if (CAPTION_OVERRIDES[name]) return CAPTION_OVERRIDES[name];
+    const base=name.replace(/\.[^.]+$/,'').replace(/[_]+/g,' ').trim();
+    return toRussian(base);
+  }
+  function toRussian(text){
+    let t=' '+text.toLowerCase()+' ';
+    // многословные конструкции — сперва
+    const reps=[
+      [/inside view of/gi,'внутренняя сторона'],
+      [/front and back views?/gi,'вид спереди и сзади'],
+      [/back view/gi,'вид сзади'],
+      [/side view/gi,'вид сбоку'],
+      [/men’s and women’s versions?/gi,'мужская и женская версии'],
+      [/men’s and women’s set/gi,'мужской и женский комплект'],
+      [/with reflective elements/gi,'со светоотражающими элементами'],
+      [/with reflective stripes/gi,'со светоотражающими полосами'],
+      [/with functional pockets/gi,'с функциональными карманами'],
+      [/with high level of protection/gi,'с высоким уровнем защиты'],
+      [/with hood/gi,'с капюшоном'],
+      [/with mounts/gi,'с креплениями'],
+      [/with adjustable straps?/gi,'с регулируемыми лямками'],
+      [/with adjustable strap/gi,'с регулируемым ремешком'],
+      [/with pockets/gi,'с карманами'],
+      [/with heating/gi,'с подогревом'],
+      [/battery packs? with cables for heating clothing and footwear/gi,'аккумуляторные блоки с кабелями для подогрева одежды и обуви'],
+      [/orange and blue/gi,'оранжево‑синий'],
+      [/gazprom neft/gi,'газпром нефть'],
+    ];
+    reps.forEach(([re,ru])=>{ t=t.replace(re, ' '+ru+' '); });
+    // однословные замены
+    const words=[
+      [/heated/gi,'с подогревом'],
+      [/heating/gi,'подогревом'],
+      [/thermal/gi,'термо'],
+      [/insulated/gi,'утепленный'],
+      [/winter/gi,'зимний'],
+      [/leather/gi,'кожаный'],
+      [/protective/gi,'защитные'],
+      [/reinforced/gi,'усиленные'],
+      [/insert(s)?/gi,'вставки'],
+      [/adjustable/gi,'регулируемый'],
+      [/strap(s)?/gi,'ремешок'],
+      [/belt/gi,'пояс'],
+      [/vest(s)?/gi,'жилет'],
+      [/glove(s)?/gi,'перчатки'],
+      [/fingerless/gi,'без пальцев'],
+      [/tactical/gi,'тактические'],
+      [/boot(s)?/gi,'ботинки'],
+      [/high/gi,'высокие'],
+      [/shaft/gi,'голенище'],
+      [/hood/gi,'капюшон'],
+      [/jacket(s)?/gi,'куртка'],
+      [/parka(s)?/gi,'парка'],
+      [/pant(s)?/gi,'брюки'],
+      [/overall(s)?/gi,'комбинезон'],
+      [/uniform/gi,'форменный'],
+      [/suit(s)?/gi,'костюм'],
+      [/vest(s)?/gi,'жилет'],
+      [/pocket(s)?/gi,'карман'],
+      [/side zipper/gi,'боковой молнией'],
+      [/battery/gi,'аккумулятор'],
+      [/sleeping bag/gi,'спальный мешок'],
+      [/tent/gi,'палатка'],
+      [/work/gi,'рабочая'],
+      [/view/gi,'вид'],
+      [/inside/gi,'внутри'],
+      [/set/gi,'комплект'],
+      [/use of/gi,'использование'],
+      [/in/gi,'в'],
+      [/the/gi,''],
+      [/and/gi,'и'],
+      [/with/gi,'с']
+    ];
+    words.forEach(([re,ru])=>{ t=t.replace(re,' '+ru+' '); });
+    t=t.replace(/\s+/g,' ').trim();
+    // Заглавная буква
+    return t.charAt(0).toLocaleUpperCase('ru-RU') + t.slice(1);
+  }
+
+  // Полный список изображений из public/image (продукция + фоны)
+  const ALL_IMAGES=[
+    "Ambush in the forest.jpg",
+    "Arctic patrol.jpg",
+    "Battery packs with cables for heating clothing and footwear.png",
+    "Camouflage tactical boot with reinforced sole and side pocket.png",
+    "Camouflaged insulated suit (jacket + pants).png",
+    "Extreme conditions.jpg",
+    "Forest hunter.jpg",
+    "Functional tactical vest with mounts and battery pocket.png",
+    "Heated insulated vest.png",
+    "Heated leather glove.png",
+    "Heated protective back belt.png",
+    "Heated thermal vest (back view).png",
+    "High camouflage boot with reinforced sole.png",
+    "High camouflage boots with reinforced sole and side pocket.png",
+    "High hunting boot with reinforced sole and yellow-black upper.png",
+    "High hunting boots with reinforced sole and bright yellow-black inserts.png",
+    "Hunter in the snowy forest.jpg",
+    "Hunter’s trail – hunter with a dog in the winter forest.jpg",
+    "Hunting in the autumn forest.jpg",
+    "Hunting in the winter forest.jpg",
+    "In the wild.jpg",
+    "Inner insulated liner (black jacket).png",
+    "Inside view of orange and blue work jacket with insulated lining and functional pockets for Gazprom Neft.png",
+    "Insulated camouflage bomber jacket (digital pattern).png",
+    "Insulated camouflage pants (digital pattern).png",
+    "Insulated Gazprom Neft jacket with high level of protection.png",
+    "Insulated Gazprom Neft overalls.png",
+    "Insulated jacket with hood (Arctic Storm series).png",
+    "Insulated leather boots with high shaft and soft lining.png",
+    "Insulated leather gloves with protective inserts and heating.png",
+    "Insulated sleeveless vests (men’s and women’s versions), front and back views.png",
+    "Insulated vest in camouflage (digital pattern).png",
+    "Insulated winter jacket with hood and reflective stripes.png",
+    "Insulated work pants in orange and blue with reflective elements for Gazprom Neft.png",
+    "Insulated work vest (blue).png",
+    "Insulated work vest.png",
+    "Leather fingerless glove with protective inserts and heating.png",
+    "Leather short fingerless gloves.jpg",
+    "Leather short gloves with protective inserts and heating.png",
+    "Lightweight protective vest with adjustable straps.png",
+    "Long insulated leather gloves with reinforced palm and adjustable strap.png",
+    "Northern route.jpg",
+    "Orange and blue work jacket with hood and Gazprom Neft logo on the back.png",
+    "Orthopedic back support belt with shoulder fixation.png",
+    "Protective fingerless glove paired with jacket with reflective stripes.png",
+    "Protective fingerless gloves with heating, paired with insulated jacket with reflective stripes.png",
+    "Protective heated vest with adjustable straps.png",
+    "Protective leather gloves with heating, reinforced inserts, and adjustable wrist strap.png",
+    "Readiness for the harsh nature.jpg",
+    "Real testing. Work of Gazprom Neft specialists.jpg",
+    "Set of insulated protective clothing with hood and reflective elements.png",
+    "Sleeping bag (folded).png",
+    "Sleeping bag (unfolded).png",
+    "Symbol of endurance.jpg",
+    "Tactical insulated boots with heating and battery pocket.png",
+    "Tactical leather boots with heating and side zipper.png",
+    "Tent for extreme conditions.png",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_1.png",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_2.png",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_3.png",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_4.png",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_5.png",
+    "Testing of Gazprom Neft protective clothing in Arctic conditions_6.png",
+    "Use of protective clothing in industrial conditions.jpg",
+    "Vest with built-in heating system.png",
+    "Warm jacket with reflective stripes and reinforced protective gloves.png",
+    "Winter hunting in the forest.jpg",
+    "Winter insulated boots with heating and battery pocket.png",
+    "Winter insulated suit (jacket and pants) Gazprom Neft with heating.png",
+    "Winter pants with insulation and reflective stripes.png",
+    "Winter patrol – person in white camouflage with a weapon by the river.jpg",
+    "Winter reconnaissance.jpg",
+    "Winter suit with extended jacket and hood, back view, with reflective stripes.png",
+    "Winter suit with extended jacket and hood, with reflective stripes, side view.png",
+    "Winter suits with jacket and pants, reflective stripes, men’s and women’s set.png",
+    "Winter uniform suit (jacket + pants).png",
+    "Work jacket in orange and blue with pockets, reflective elements, and Gazprom Neft corporate patch.png"
+  ];
+
+  // Фоны, не попадают в каталог продуктов
+  const BACKGROUND_ONLY=new Set([
+    "Ambush in the forest.jpg","Arctic patrol.jpg","Extreme conditions.jpg","Forest hunter.jpg",
+    "Hunter in the snowy forest.jpg","Hunter’s trail – hunter with a dog in the winter forest.jpg",
+    "Hunting in the autumn forest.jpg","Hunting in the winter forest.jpg","In the wild.jpg","Northern route.jpg",
+    "Readiness for the harsh nature.jpg","Real testing. Work of Gazprom Neft specialists.jpg","Symbol of endurance.jpg",
+    "Use of protective clothing in industrial conditions.jpg","Winter hunting in the forest.jpg",
+    "Winter patrol – person in white camouflage with a weapon by the river.jpg","Winter reconnaissance.jpg"
+  ]);
+
+  // Категоризация по имени файла
+  function categoryOf(file){
+    const f=file.toLowerCase();
+    if(/gazprom|work jacket|corporate patch/.test(f)) return 'Рабочая одежда (Газпром)';
+    if(/boot\b|boots\b/.test(f)) return 'Обувь';
+    if(/glove|gloves/.test(f)) return 'Перчатки';
+    if(/vest|belt/.test(f)) return 'Жилеты и пояса';
+    if(/pants|overalls|uniform|\bsuit\b|suits\b/.test(f)) return 'Костюмы и брюки';
+    if(/jacket|hood|parka|coat/.test(f)) return 'Куртки и парки';
+    if(/tent|sleeping bag/.test(f)) return 'Аксессуары и палатки';
+    return 'Другое';
+  }
+
+  const PRODUCT_FILES=ALL_IMAGES.filter(f=>!BACKGROUND_ONLY.has(f));
+  const byCat=new Map();
+  PRODUCT_FILES.forEach(f=>{const c=categoryOf(f); if(!byCat.has(c)) byCat.set(c,[]); byCat.get(c).push(f)});
+  for(const arr of byCat.values()) arr.sort((a,b)=>a.localeCompare(b,'ru',{sensitivity:'base'}));
+  const ORDER=[
+    'Куртки и парки','Костюмы и брюки','Жилеты и пояса','Перчатки','Обувь','Аксессуары и палатки','Рабочая одежда (Газпром)','Другое'
+  ].filter(c=>byCat.has(c));
+
+  const filters=document.getElementById('filters');
+  const gallery=document.getElementById('gallery');
+  const more=document.getElementById('more');
+  const BATCH=12, INITIAL=18; let state={cat:'Все',shown:0,pool:[]};
+
+  function buildFilters(){
+    const make=(label)=>{const b=document.createElement('button'); b.type='button'; b.className='filter-btn'; b.dataset.cat=label; b.textContent=label; b.addEventListener('click',()=>selectCat(label)); return b};
+    filters.innerHTML='';
+    filters.appendChild(make('Все'));
+    ORDER.forEach(c=>filters.appendChild(make(c)));
+  }
+  function selectCat(cat){
+    state.cat=cat;
+    filters.querySelectorAll('.filter-btn').forEach(b=>b.setAttribute('aria-pressed', b.dataset.cat===cat?'true':'false'));
+    state.pool = cat==='Все' ? PRODUCT_FILES.slice() : (byCat.get(cat)||[]).slice();
+    state.pool.sort((a,b)=>a.localeCompare(b,'ru',{sensitivity:'base'}));
+    state.shown=0; gallery.innerHTML='';
+    render(INITIAL);
+  }
+  function render(count){
+    const next=state.pool.slice(state.shown, state.shown+count);
+    next.forEach(f=>{
+      const card=document.createElement('article'); card.className='gcard'; card.setAttribute('role','listitem');
+      card.innerHTML=`<img src="image/${f}" alt="${caption(f)}" loading="lazy" decoding="async" width="600" height="400"><div class="cap">${caption(f)}</div>`;
+      const img=card.querySelector('img'); img.addEventListener('error',()=>card.remove());
+      gallery.appendChild(card);
+    });
+    state.shown+=next.length;
+    // legacy more button removed
+  }
+  // Портфолио отключено: рендерим каталог по категориям ниже
+  // buildFilters(); selectCat('Все');
+  // more.addEventListener('click',()=>render(BATCH));
+
+  // ——— Каталог: секции по категориям в нужном порядке ———
+  const CATALOG_ORDER=['Жилеты','Перчатки','Куртки','Брюки','Комплекты','Обувь','Аксессуары и палатки','Рабочая одежда (Газпром)','Другое'];
+  function toCatalogName(cat){
+    if(cat==='Жилеты и пояса') return 'Жилеты';
+    if(cat==='Куртки и парки') return 'Куртки';
+    if(cat==='Костюмы и брюки') return 'Комплекты';
+    return cat;
+  }
+  const groups=new Map(CATALOG_ORDER.map(c=>[c,[]]));
+  PRODUCT_FILES.forEach(f=>{
+    const low=f.toLowerCase();
+    let cat=toCatalogName(categoryOf(f));
+    if(/\bpants\b/.test(low)) cat='Брюки';
+    if(/tent|sleeping bag|battery packs?/.test(low)) cat='Аксессуары и палатки';
+    // Исключаем кадры полигона из блока «Рабочая одежда (Газпром)»
+    if(cat==='Рабочая одежда (Газпром)' && /testing of gazprom neft protective clothing in arctic conditions_\d+\.png/.test(low)) return;
+    if(!groups.has(cat)) groups.set(cat,[]);
+    groups.get(cat).push(f);
+  });
+  // Сортировка по категориям: для "Жилеты" — специальный порядок
+  function sortVests(a,b){
+    const al=a.toLowerCase(), bl=b.toLowerCase();
+    const prio=(s)=>{
+      // 0 — подогрев; 1 — защитные/лямки; 2 — рабочие; 3 — камуфляж; 4 — прочее
+      if(/heated|heating|thermal|built\-in heating/.test(s)) return 0;
+      if(/protective|adjustable straps?/.test(s)) return 1;
+      if(/work vest/.test(s)) return 2;
+      if(/camouflage|camouflaged|camo/.test(s)) return 3;
+      return 4;
+    };
+    const view=(s)=>{
+      if(/front and back/.test(s)) return 0;
+      if(/front view/.test(s)) return 1;
+      if(/side view/.test(s)) return 3;
+      if(/back view/.test(s)) return 4;
+      return 2; // не указано
+    };
+    const pa=prio(al), pb=prio(bl);
+    if(pa!==pb) return pa-pb;
+    const va=view(al), vb=view(bl);
+    if(va!==vb) return va-vb;
+    return a.localeCompare(b,'ru',{sensitivity:'base'});
+  }
+  for(const [cat, arr] of groups.entries()){
+    if(cat==='Жилеты') arr.sort(sortVests);
+    else arr.sort((a,b)=>a.localeCompare(b,'ru',{sensitivity:'base'}));
+  }
+  const root=document.getElementById('catalog-root');
+  function renderCatalog(){
+    root.innerHTML='';
+    CATALOG_ORDER.forEach(cat=>{
+      const items=groups.get(cat)||[];
+      if(!items.length) return;
+      const sec=document.createElement('section');
+      sec.className='cat';
+      if(cat==='Рабочая одежда (Газпром)'){
+        sec.style.marginTop='clamp(24px, 6vw, 48px)';
+      }
+      sec.innerHTML=`<h3 style=\"margin:0 0 12px\">${cat}</h3><div class=\"gallery\" role=\"list\"></div>`;
+      const grid=sec.querySelector('.gallery');
+      items.forEach(f=>{
+        const card=document.createElement('article'); card.className='gcard'; card.setAttribute('role','listitem');
+        card.innerHTML=`<img src=\"image/${f}\" alt=\"${caption(f)}\" loading=\"lazy\" decoding=\"async\" width=\"600\" height=\"400\"><div class=\"cap\">${caption(f)}</div>`;
+        const img=card.querySelector('img'); img.addEventListener('error',()=>card.remove());
+        grid.appendChild(card);
+      });
+      root.appendChild(sec);
+    });
+  }
+  renderCatalog();
+</script>
+</body>
+</html>
