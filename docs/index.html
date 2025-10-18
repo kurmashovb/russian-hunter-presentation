@@ -37,8 +37,10 @@
   @media(min-width:980px){nav{display:flex}}
   .menu{display:inline-grid;place-items:center;width:40px;height:36px;border:1px solid var(--line);border-radius:8px;background:none;color:var(--fg)}
   @media(min-width:980px){.menu{display:none}}
-  .theme{display:inline-grid;place-items:center;width:40px;height:36px;border:1px solid var(--line);border-radius:8px;background:#10131A;color:var(--fg);margin-left:8px}
-  .theme:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(0,0,0,.12)}
+  .lang,.theme{display:inline-grid;place-items:center;width:40px;height:36px;border:1px solid var(--line);border-radius:8px;background:#10131A;color:var(--fg)}
+  .lang{margin-left:8px}
+  .theme{margin-left:8px}
+  .lang:hover,.theme:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(0,0,0,.12)}
   /* Off-canvas mobile menu (always styled; hidden by attribute) */
   #mnav{position:fixed; top:0; right:0; bottom:0; width:min(100vw,420px);
     display:flex; flex-direction:column; gap:0; padding:0;
@@ -156,6 +158,7 @@
   :root[data-theme="light"] .gcard img{background:#fff}
   :root[data-theme="light"] .chip{background:rgba(0,0,0,.04);color:#111}
   :root[data-theme="light"] .filter-btn[aria-pressed="true"]{background:#f3f4f6;color:#111}
+  :root[data-theme="light"] .lang,
   :root[data-theme="light"] .theme{background:#fff}
   /* Improve text contrast on light theme */
   :root[data-theme="light"] .cap{color:#374151}
@@ -179,38 +182,39 @@
 </style>
 </head>
 <body>
-<a class="sr-only" href="#main">Пропустить к содержанию</a>
+<a class="sr-only" href="#main" data-i18n="skip-link">Пропустить к содержанию</a>
 
 <header>
   <div class="container head">
-    <div class="brand">ITS Group / ООО «ИНТЕРТЕХСЕРВИС»</div>
-    <nav aria-label="Навигация">
-      <a href="#about">Кто мы</a>
-      <a href="#tech">Технологии</a>
-      <a href="#case">Кейс</a>
-      <a href="#catalog">Каталог</a>
-      <a href="#process">Процесс</a>
-      <a href="#contacts">Контакты</a>
-      <a class="btn" href="#cta">Пилот 30 дней</a>
+    <div class="brand" data-i18n="brand">ITS Group / ООО «ИНТЕРТЕХСЕРВИС»</div>
+    <nav aria-label="Навигация" data-i18n="nav-aria" data-i18n-attr="aria-label">
+      <a href="#about" data-i18n="nav-about">Кто мы</a>
+      <a href="#tech" data-i18n="nav-tech">Технологии</a>
+      <a href="#case" data-i18n="nav-case">Кейс</a>
+      <a href="#catalog" data-i18n="nav-catalog">Каталог</a>
+      <a href="#process" data-i18n="nav-process">Процесс</a>
+      <a href="#contacts" data-i18n="nav-contacts">Контакты</a>
+      <a class="btn" href="#cta" data-i18n="nav-pilot">Пилот 30 дней</a>
     </nav>
-    <button class="theme" type="button" aria-pressed="false" aria-label="Переключить тему">☾</button>
-    <button class="menu" type="button" aria-controls="mnav" aria-expanded="false" aria-label="Открыть меню">☰</button>
+    <button class="lang" type="button" aria-label="Сменить язык" data-i18n="aria-lang-toggle" data-i18n-attr="aria-label">中文</button>
+    <button class="theme" type="button" aria-pressed="false" aria-label="Переключить тему" data-i18n="aria-theme" data-i18n-attr="aria-label">☾</button>
+    <button class="menu" type="button" aria-controls="mnav" aria-expanded="false" aria-label="Открыть меню" data-i18n="aria-menu" data-i18n-attr="aria-label">☰</button>
   </div>
-  <nav id="mnav" hidden aria-label="Мобильное меню">
+  <nav id="mnav" hidden aria-label="Мобильное меню" data-i18n="mobile-nav" data-i18n-attr="aria-label">
     <div class="mnav__header">
-      <div class="mnav__title">Меню</div>
-      <button class="mnav__close" type="button" aria-label="Закрыть меню">✕</button>
+      <div class="mnav__title" data-i18n="menu-title">Меню</div>
+      <button class="mnav__close" type="button" aria-label="Закрыть меню" data-i18n="aria-close-menu" data-i18n-attr="aria-label">✕</button>
     </div>
     <div class="mnav__list">
-      <a class="mnav__link" href="#about">Кто мы</a>
-      <a class="mnav__link" href="#tech">Технологии</a>
-      <a class="mnav__link" href="#case">Кейс</a>
-      <a class="mnav__link" href="#catalog">Каталог</a>
-      <a class="mnav__link" href="#process">Процесс</a>
-      <a class="mnav__link" href="#contacts">Контакты</a>
+      <a class="mnav__link" href="#about" data-i18n="nav-about">Кто мы</a>
+      <a class="mnav__link" href="#tech" data-i18n="nav-tech">Технологии</a>
+      <a class="mnav__link" href="#case" data-i18n="nav-case">Кейс</a>
+      <a class="mnav__link" href="#catalog" data-i18n="nav-catalog">Каталог</a>
+      <a class="mnav__link" href="#process" data-i18n="nav-process">Процесс</a>
+      <a class="mnav__link" href="#contacts" data-i18n="nav-contacts">Контакты</a>
     </div>
     <div class="mnav__footer">
-      <a class="mnav__cta" href="#cta">Пилот 30 дней</a>
+      <a class="mnav__cta" href="#cta" data-i18n="nav-pilot">Пилот 30 дней</a>
     </div>
   </nav>
 </header>
@@ -224,12 +228,16 @@
     <div class="bg" role="img" aria-label="Winter hunting in the forest"></div>
     <div class="veil" aria-hidden="true"></div>
     <div class="container inner">
-      <h1>Создаём продукцию, которая выдерживает Арктику и усиливает ваш бренд</h1>
-      <p class="lead">Высокотехнологичные нагревательные и утепляющие изделия для экстремально низких температур (до −40 °C). Private label-производство для «Русская охота» на сертифицированных фабриках в Китае.</p>
+      <h1 data-i18n="hero-title">Создаём продукцию, которая выдерживает Арктику и усиливает ваш бренд</h1>
+      <p class="lead" data-i18n="hero-lead">Высокотехнологичные нагревательные и утепляющие изделия для экстремально низких температур (до −40 °C). Private label-производство для «Русская охота» на сертифицированных фабриках в Китае.</p>
       <div class="chips">
-        <span class="chip">Электроподогрев</span><span class="chip">Теплоизоляция</span><span class="chip">Антистатик / ОГНЕСТОЙКОСТЬ</span><span class="chip">Взрывозащита</span><span class="chip">—29 °C / ветер 26 м/с — испытано</span>
+        <span class="chip" data-i18n="hero-chip-1">Электроподогрев</span>
+        <span class="chip" data-i18n="hero-chip-2">Теплоизоляция</span>
+        <span class="chip" data-i18n="hero-chip-3">Антистатик / ОГНЕСТОЙКОСТЬ</span>
+        <span class="chip" data-i18n="hero-chip-4">Взрывозащита</span>
+        <span class="chip" data-i18n="hero-chip-5">—29 °C / ветер 26 м/с — испытано</span>
       </div>
-      <div style="margin-top:20px"><a class="btn" href="#cta">Запросить пилот за 30 дней</a></div>
+      <div style="margin-top:20px"><a class="btn" href="#cta" data-i18n="hero-cta">Запросить пилот за 30 дней</a></div>
     </div>
   </section>
 
@@ -237,10 +245,10 @@
   <section class="section" id="about">
     <div class="container grid">
       <div>
-        <h2>Кто мы</h2>
-        <p class="lead">Мы — группа компаний ITS Group, в составе — ООО «ИНТЕРТЕХСЕРВИС». Более 15 лет помогаем промышленности и ритейлу выпускать одежду и обувь для сурового климата: от спецодежды до премиального outdoor.</p>
-        <p class="lead">Наша специализация — решения с электроподогревом и продуманной теплоизоляцией, адаптированные под эксплуатацию в Сибири и на Крайнем Севере.</p>
-        <p class="lead">Private label-производство в Китае • Сертифицированные фабрики • Контроль качества на каждом этапе</p>
+        <h2 data-i18n="about-title">Кто мы</h2>
+        <p class="lead" data-i18n="about-lead-1">Мы — группа компаний ITS Group, в составе — ООО «ИНТЕРТЕХСЕРВИС». Более 15 лет помогаем промышленности и ритейлу выпускать одежду и обувь для сурового климата: от спецодежды до премиального outdoor.</p>
+        <p class="lead" data-i18n="about-lead-2">Наша специализация — решения с электроподогревом и продуманной теплоизоляцией, адаптированные под эксплуатацию в Сибири и на Крайнем Севере.</p>
+        <p class="lead" data-i18n="about-lead-3">Private label-производство в Китае • Сертифицированные фабрики • Контроль качества на каждом этапе</p>
       </div>
       <figure class="frame"><img src="image/Extreme conditions.jpg" alt="Extreme conditions" loading="lazy" decoding="async" width="1600" height="1000"></figure>
     </div>
@@ -249,14 +257,14 @@
   <!-- TECH -->
   <section class="section" id="tech">
     <div class="container">
-      <h2>Технологии и экспертиза</h2>
-      <p class="lead">Продукция создаётся при участии профессора Цюй Юаньфана (曲远方). Фокус: эффективность электроподогрева, равномерность теплопередачи, безопасность.</p>
+      <h2 data-i18n="tech-title">Технологии и экспертиза</h2>
+      <p class="lead" data-i18n="tech-lead">Продукция создаётся при участии профессора Цюй Юаньфана (曲远方). Фокус: эффективность электроподогрева, равномерность теплопередачи, безопасность.</p>
       <div class="cards" role="list">
-        <article class="card" role="listitem"><h3>До −40 °C</h3><p class="muted">Работа в экстремальном холоде.</p></article>
-        <article class="card" role="listitem"><h3>Взрывозащита и антистатик</h3><p class="muted">Версии для опасных зон.</p></article>
-        <article class="card" role="listitem"><h3>Материалы</h3><p class="muted">Водо-/ветронепроницаемые, огнестойкие, износостойкие.</p></article>
-        <article class="card" role="listitem"><h3>Долговечность ×1.4</h3><p class="muted">Средний прирост ресурса.</p></article>
-        <article class="card" role="listitem"><h3>Стабильность −20/−40 °C</h3><p class="muted">Надёжность нагревательных зон и АКБ.</p></article>
+        <article class="card" role="listitem"><h3 data-i18n="tech-card-1-title">До −40 °C</h3><p class="muted" data-i18n="tech-card-1-text">Работа в экстремальном холоде.</p></article>
+        <article class="card" role="listitem"><h3 data-i18n="tech-card-2-title">Взрывозащита и антистатик</h3><p class="muted" data-i18n="tech-card-2-text">Версии для опасных зон.</p></article>
+        <article class="card" role="listitem"><h3 data-i18n="tech-card-3-title">Материалы</h3><p class="muted" data-i18n="tech-card-3-text">Водо-/ветронепроницаемые, огнестойкие, износостойкие.</p></article>
+        <article class="card" role="listitem"><h3 data-i18n="tech-card-4-title">Долговечность ×1.4</h3><p class="muted" data-i18n="tech-card-4-text">Средний прирост ресурса.</p></article>
+        <article class="card" role="listitem"><h3 data-i18n="tech-card-5-title">Стабильность −20/−40 °C</h3><p class="muted" data-i18n="tech-card-5-text">Надёжность нагревательных зон и АКБ.</p></article>
       </div>
     </div>
   </section>
@@ -264,20 +272,20 @@
   <!-- CASE -->
   <section class="section" id="case">
     <div class="container">
-      <h2>Кейс «Газпром нефть шельф»</h2>
-      <p class="lead">Костюмы и обувь с электроподогревом прошли полевые испытания при −29 °C и ветре 26 м/с — все ключевые показатели защитных свойств подтверждены («хорошо»). При этом вес комплектов снижен на 500–1000 г без потери теплоэффективности.</p>
-      <p class="lead" style="margin-top:8px">Нюансы и решения:</p>
+      <h2 data-i18n="case-title">Кейс «Газпром нефть шельф»</h2>
+      <p class="lead" data-i18n="case-lead">Костюмы и обувь с электроподогревом прошли полевые испытания при −29 °C и ветре 26 м/с — все ключевые показатели защитных свойств подтверждены («хорошо»). При этом вес комплектов снижен на 500–1000 г без потери теплоэффективности.</p>
+      <p class="lead" style="margin-top:8px" data-i18n="case-nuances-title">Нюансы и решения:</p>
       <ul class="muted" style="margin-top:4px">
-        <li>Следы нефтепродуктов после стирки → добавили масло‑защитное покрытие ткани.</li>
-        <li>Уязвимость носков кожаных сапог по насту → внедрили резиновый усиленный носок.</li>
+        <li data-i18n="case-nuance-1">Следы нефтепродуктов после стирки → добавили масло‑защитное покрытие ткани.</li>
+        <li data-i18n="case-nuance-2">Уязвимость носков кожаных сапог по насту → внедрили резиновый усиленный носок.</li>
       </ul>
-      <div class="thumbs" aria-label="Фото кейса">
-        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_1.png" alt="Тестирование защитной одежды в Арктике — кадр 1" loading="lazy" decoding="async" width="800" height="600">
-        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_2.png" alt="Тестирование защитной одежды в Арктике — кадр 2" loading="lazy" decoding="async" width="800" height="600">
-        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_3.png" alt="Тестирование защитной одежды в Арктике — кадр 3" loading="lazy" decoding="async" width="800" height="600">
-        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_4.png" alt="Тестирование защитной одежды в Арктике — кадр 4" loading="lazy" decoding="async" width="800" height="600">
-        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_5.png" alt="Тестирование защитной одежды в Арктике — кадр 5" loading="lazy" decoding="async" width="800" height="600">
-        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_6.png" alt="Тестирование защитной одежды в Арктике — кадр 6" loading="lazy" decoding="async" width="800" height="600">
+      <div class="thumbs" aria-label="Фото кейса" data-i18n="case-photos" data-i18n-attr="aria-label">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_1.png" alt="Тестирование защитной одежды в Арктике — кадр 1" loading="lazy" decoding="async" width="800" height="600" data-i18n="case-photo-1" data-i18n-attr="alt">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_2.png" alt="Тестирование защитной одежды в Арктике — кадр 2" loading="lazy" decoding="async" width="800" height="600" data-i18n="case-photo-2" data-i18n-attr="alt">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_3.png" alt="Тестирование защитной одежды в Арктике — кадр 3" loading="lazy" decoding="async" width="800" height="600" data-i18n="case-photo-3" data-i18n-attr="alt">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_4.png" alt="Тестирование защитной одежды в Арктике — кадр 4" loading="lazy" decoding="async" width="800" height="600" data-i18n="case-photo-4" data-i18n-attr="alt">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_5.png" alt="Тестирование защитной одежды в Арктике — кадр 5" loading="lazy" decoding="async" width="800" height="600" data-i18n="case-photo-5" data-i18n-attr="alt">
+        <img src="image/Testing of Gazprom Neft protective clothing in Arctic conditions_6.png" alt="Тестирование защитной одежды в Арктике — кадр 6" loading="lazy" decoding="async" width="800" height="600" data-i18n="case-photo-6" data-i18n-attr="alt">
       </div>
     </div>
   </section>
@@ -285,12 +293,12 @@
   <!-- WHAT WE CAN DO -->
   <section class="section">
     <div class="container">
-      <h2>Что можем создать для «Русская охота»</h2>
+      <h2 data-i18n="offer-title">Что можем создать для «Русская охота»</h2>
       <ul class="muted">
-        <li>Куртки, жилеты, брюки — утеплённые и с электроподогревом</li>
-        <li>Обувь, перчатки, палатки, аксессуары с обогревом</li>
-        <li>Антистатик/огнестойкость, версии с взрывозащитой</li>
-        <li>Тиражи от пилота до серии • Private label • QC • логистика • постгарантия</li>
+        <li data-i18n="offer-item-1">Куртки, жилеты, брюки — утеплённые и с электроподогревом</li>
+        <li data-i18n="offer-item-2">Обувь, перчатки, палатки, аксессуары с обогревом</li>
+        <li data-i18n="offer-item-3">Антистатик/огнестойкость, версии с взрывозащитой</li>
+        <li data-i18n="offer-item-4">Тиражи от пилота до серии • Private label • QC • логистика • постгарантия</li>
       </ul>
     </div>
   </section>
@@ -298,34 +306,34 @@
   <!-- PROCESS -->
   <section class="section" id="process">
     <div class="container">
-      <h2>Процесс (30 дней до пилота)</h2>
-      <div class="steps" role="list" aria-label="Этапы процесса">
+      <h2 data-i18n="process-title">Процесс (30 дней до пилота)</h2>
+      <div class="steps" role="list" aria-label="Этапы процесса" data-i18n="process-aria" data-i18n-attr="aria-label">
         <article class="step" role="listitem">
           <div class="step__badge" aria-hidden="true">1</div>
-          <h3 class="step__title">Аналитика</h3>
+          <h3 class="step__title" data-i18n="process-step-1-title">Аналитика</h3>
           <ul class="step__list">
-            <li>Аудит задач и аудитории</li>
-            <li>Материалы и конфигурации под климат/сценарии</li>
+            <li data-i18n="process-step-1-item-1">Аудит задач и аудитории</li>
+            <li data-i18n="process-step-1-item-2">Материалы и конфигурации под климат/сценарии</li>
           </ul>
-          <div class="step__out"><span class="step__out-key">Выход:</span> ТЗ и карта коллекции</div>
+          <div class="step__out"><span class="step__out-key" data-i18n="process-output-label">Выход:</span> <span data-i18n="process-step-1-output">ТЗ и карта коллекции</span></div>
         </article>
         <article class="step" role="listitem">
           <div class="step__badge" aria-hidden="true">2</div>
-          <h3 class="step__title">Пилот 30 дней</h3>
+          <h3 class="step__title" data-i18n="process-step-2-title">Пилот 30 дней</h3>
           <ul class="step__list">
-            <li>Дизайн → образцы → валидация посадки и тепла</li>
-            <li>Морозные и износостойкие тесты</li>
+            <li data-i18n="process-step-2-item-1">Дизайн → образцы → валидация посадки и тепла</li>
+            <li data-i18n="process-step-2-item-2">Морозные и износостойкие тесты</li>
           </ul>
-          <div class="step__out"><span class="step__out-key">Выход:</span> опытные образцы и отчёт</div>
+          <div class="step__out"><span class="step__out-key" data-i18n="process-output-label">Выход:</span> <span data-i18n="process-step-2-output">опытные образцы и отчёт</span></div>
         </article>
         <article class="step" role="listitem">
           <div class="step__badge" aria-hidden="true">3</div>
-          <h3 class="step__title">Производство</h3>
+          <h3 class="step__title" data-i18n="process-step-3-title">Производство</h3>
           <ul class="step__list">
-            <li>Сертифицированные фабрики в Китае</li>
-            <li>QC, логистика, сервис и ЗИП</li>
+            <li data-i18n="process-step-3-item-1">Сертифицированные фабрики в Китае</li>
+            <li data-i18n="process-step-3-item-2">QC, логистика, сервис и ЗИП</li>
           </ul>
-          <div class="step__out"><span class="step__out-key">Выход:</span> поставка и поддержка</div>
+          <div class="step__out"><span class="step__out-key" data-i18n="process-output-label">Выход:</span> <span data-i18n="process-step-3-output">поставка и поддержка</span></div>
         </article>
       </div>
     </div>
@@ -334,7 +342,7 @@
   <!-- CATALOG -->
   <section class="section" id="catalog">
     <div class="container">
-      <h2>Каталог</h2>
+      <h2 data-i18n="catalog-title">Каталог</h2>
       <div id="catalog-root"></div>
     </div>
   </section>
@@ -342,27 +350,27 @@
   <!-- CTA -->
   <section class="section" id="cta" style="text-align:center">
     <div class="container">
-      <h2>Готовы запустить пилот за 30 дней</h2>
-      <p class="lead">Покажем, как коллекция «Русская охота» выглядит на витрине и работает в поле.</p>
-      <p class="lead">Пожалуйста, пришлите письмо на <a href="mailto:info@intertech-service.ru">info@intertech-service.ru</a> или позвоните по номеру <a href="tel:+78002500324">8-800-250-03-24</a>.</p>
+      <h2 data-i18n="cta-title">Готовы запустить пилот за 30 дней</h2>
+      <p class="lead" data-i18n="cta-lead-1">Покажем, как коллекция «Русская охота» выглядит на витрине и работает в поле.</p>
+      <p class="lead" data-i18n="cta-lead-2" data-i18n-type="html">Пожалуйста, пришлите письмо на <a href="mailto:info@intertech-service.ru">info@intertech-service.ru</a> или позвоните по номеру <a href="tel:+78002500324">8-800-250-03-24</a>.</p>
     </div>
   </section>
 
   <!-- CONTACTS -->
   <section class="section" id="contacts">
     <div class="container">
-      <h2>Контакты</h2>
-      <div>ITS Group / ООО «ИНТЕРТЕХСЕРВИС»</div>
-      <div>Адрес: г. Краснодар, ул. Кубанская Набережная, д.7, офис 305</div>
-      <div>Тел.: <a href="tel:+78002500324">8-800-250-03-24</a> • <a href="tel:+79181800443">8-918-180-04-43</a></div>
-      <div>E-mail: <a href="mailto:info@intertech-service.ru">info@intertech-service.ru</a></div>
-      <div>Сайт: <a href="https://intertech-service.ru" target="_blank" rel="noopener">intertech-service.ru</a></div>
+      <h2 data-i18n="contacts-title">Контакты</h2>
+      <div data-i18n="contacts-brand">ITS Group / ООО «ИНТЕРТЕХСЕРВИС»</div>
+      <div data-i18n="contacts-address">Адрес: г. Краснодар, ул. Кубанская Набережная, д.7, офис 305</div>
+      <div data-i18n="contacts-phone" data-i18n-type="html">Тел.: <a href="tel:+78002500324">8-800-250-03-24</a> • <a href="tel:+79181800443">8-918-180-04-43</a></div>
+      <div data-i18n="contacts-email" data-i18n-type="html">E-mail: <a href="mailto:info@intertech-service.ru">info@intertech-service.ru</a></div>
+      <div data-i18n="contacts-site" data-i18n-type="html">Сайт: <a href="https://intertech-service.ru" target="_blank" rel="noopener">intertech-service.ru</a></div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="container">© 2025 ITS Group / ООО «ИНТЕРТЕХСЕРВИС»</div>
+  <div class="container" data-i18n="footer-note">© 2025 ITS Group / ООО «ИНТЕРТЕХСЕРВИС»</div>
 </footer>
 
 <script>
@@ -429,7 +437,8 @@
   })();
 
   // Подписи: сначала проверяем словарь точных переводов, иначе — эвристика
-  const CAPTION_OVERRIDES = {
+  let currentLang='ru';
+  const CAPTION_OVERRIDES_RU = {
     "Ambush in the forest.jpg": "Засада в лесу",
     "Arctic patrol.jpg": "Арктический патруль",
     "Battery packs with cables for heating clothing and footwear.png": "Аккумуляторные блоки с кабелями для подогрева одежды и обуви",
@@ -508,86 +517,196 @@
     "Winter uniform suit (jacket + pants).png": "Зимний форменный костюм (куртка + брюки)",
     "Work jacket in orange and blue with pockets, reflective elements, and Gazprom Neft corporate patch.png": "Рабочая куртка оранжево‑синяя с карманами, светоотражающими элементами и корпоративной нашивкой Газпром нефть"
   };
+  const CAPTION_OVERRIDES_ZH = {
+    "Ambush in the forest.jpg":"林中伏击",
+    "Arctic patrol.jpg":"北极巡逻",
+    "Extreme conditions.jpg":"极端环境",
+    "Forest hunter.jpg":"森林猎手",
+    "Hunter in the snowy forest.jpg":"雪林中的猎人",
+    "Hunter’s trail – hunter with a dog in the winter forest.jpg":"冬日森林中的猎人和猎犬",
+    "Hunting in the autumn forest.jpg":"秋林狩猎",
+    "Hunting in the winter forest.jpg":"冬林狩猎",
+    "In the wild.jpg":"荒野之中",
+    "Northern route.jpg":"北方路线",
+    "Readiness for the harsh nature.jpg":"面对严酷自然的准备",
+    "Real testing. Work of Gazprom Neft specialists.jpg":"Gazprom Neft 专家实地测试",
+    "Symbol of endurance.jpg":"耐力象征",
+    "Use of protective clothing in industrial conditions.jpg":"防护服在工业环境中的应用",
+    "Winter hunting in the forest.jpg":"林中冬季狩猎",
+    "Winter patrol – person in white camouflage with a weapon by the river.jpg":"冬季巡逻：白色伪装者在河边执勤",
+    "Winter reconnaissance.jpg":"冬季侦察"
+  };
 
   // подпись с учётом словаря
+  const CAPTION_MULTI_RU=[
+    [/inside view of/gi,'внутренняя сторона'],
+    [/front and back views?/gi,'вид спереди и сзади'],
+    [/back view/gi,'вид сзади'],
+    [/side view/gi,'вид сбоку'],
+    [/men’s and women’s versions?/gi,'мужская и женская версии'],
+    [/men’s and women’s set/gi,'мужской и женский комплект'],
+    [/with reflective elements/gi,'со светоотражающими элементами'],
+    [/with reflective stripes/gi,'со светоотражающими полосами'],
+    [/with functional pockets/gi,'с функциональными карманами'],
+    [/with high level of protection/gi,'с высоким уровнем защиты'],
+    [/with hood/gi,'с капюшоном'],
+    [/with mounts/gi,'с креплениями'],
+    [/with adjustable straps?/gi,'с регулируемыми лямками'],
+    [/with adjustable strap/gi,'с регулируемым ремешком'],
+    [/with pockets/gi,'с карманами'],
+    [/with heating/gi,'с подогревом'],
+    [/battery packs? with cables for heating clothing and footwear/gi,'аккумуляторные блоки с кабелями для подогрева одежды и обуви'],
+    [/orange and blue/gi,'оранжево‑синий'],
+    [/gazprom neft/gi,'газпром нефть'],
+  ];
+  const CAPTION_MULTI_ZH=[
+    [/inside view of/gi,'内侧'],
+    [/front and back views?/gi,'正反面'],
+    [/front and back/gi,'正反面'],
+    [/front view/gi,'正面'],
+    [/back view/gi,'背面'],
+    [/side view/gi,'侧面'],
+    [/men’s and women’s versions?/gi,'男女款'],
+    [/men’s and women’s set/gi,'男女套装'],
+    [/with reflective elements/gi,'带反光元件的'],
+    [/with reflective stripes/gi,'带反光条的'],
+    [/with reflective inserts/gi,'带反光嵌件的'],
+    [/with functional pockets/gi,'带功能口袋的'],
+    [/with high level of protection/gi,'高防护的'],
+    [/with hood/gi,'连帽'],
+    [/with mounts/gi,'带挂点的'],
+    [/with adjustable straps?/gi,'带可调肩带的'],
+    [/with adjustable strap/gi,'带可调束带的'],
+    [/with pockets/gi,'带口袋的'],
+    [/with heating/gi,'带加热功能的'],
+    [/battery packs? with cables for heating clothing and footwear/gi,'带电缆的服装鞋靴加热电池组'],
+    [/two outputs?/gi,'双输出'],
+    [/orange and blue/gi,'橙蓝色'],
+    [/gazprom neft/gi,'Gazprom Neft']
+  ];
+  const CAPTION_WORDS_RU=[
+    [/heated/gi,'с подогревом'],
+    [/heating/gi,'подогревом'],
+    [/thermal/gi,'термо'],
+    [/insulated/gi,'утепленный'],
+    [/winter/gi,'зимний'],
+    [/leather/gi,'кожаный'],
+    [/protective/gi,'защитные'],
+    [/reinforced/gi,'усиленные'],
+    [/insert(s)?/gi,'вставки'],
+    [/adjustable/gi,'регулируемый'],
+    [/strap(s)?/gi,'ремешок'],
+    [/belt/gi,'пояс'],
+    [/vest(s)?/gi,'жилет'],
+    [/glove(s)?/gi,'перчатки'],
+    [/fingerless/gi,'без пальцев'],
+    [/tactical/gi,'тактические'],
+    [/boot(s)?/gi,'ботинки'],
+    [/high/gi,'высокие'],
+    [/shaft/gi,'голенище'],
+    [/hood/gi,'капюшон'],
+    [/jacket(s)?/gi,'куртка'],
+    [/parka(s)?/gi,'парка'],
+    [/pant(s)?/gi,'брюки'],
+    [/overall(s)?/gi,'комбинезон'],
+    [/uniform/gi,'форменный'],
+    [/suit(s)?/gi,'костюм'],
+    [/vest(s)?/gi,'жилет'],
+    [/pocket(s)?/gi,'карман'],
+    [/side zipper/gi,'боковой молнией'],
+    [/battery/gi,'аккумулятор'],
+    [/sleeping bag/gi,'спальный мешок'],
+    [/tent/gi,'палатка'],
+    [/work/gi,'рабочая'],
+    [/view/gi,'вид'],
+    [/inside/gi,'внутри'],
+    [/set/gi,'комплект'],
+    [/use of/gi,'использование'],
+    [/in/gi,'в'],
+    [/the/gi,''],
+    [/and/gi,'и'],
+    [/with/gi,'с']
+  ];
+  const CAPTION_WORDS_ZH=[
+    [/heated|heating/gi,'加热'],
+    [/thermal/gi,'保暖'],
+    [/insulated/gi,'保温'],
+    [/winter/gi,'冬季'],
+    [/leather/gi,'皮质'],
+    [/protective/gi,'防护'],
+    [/reinforced/gi,'加固'],
+    [/insert(s)?/gi,'护垫'],
+    [/adjustable/gi,'可调'],
+    [/strap(s)?/gi,'束带'],
+    [/belt/gi,'腰带'],
+    [/vest(s)?/gi,'马甲'],
+    [/glove(s)?/gi,'手套'],
+    [/mittens?/gi,'连指手套'],
+    [/fingerless/gi,'半指'],
+    [/tactical/gi,'战术'],
+    [/boot(s)?/gi,'靴'],
+    [/high/gi,'高帮'],
+    [/shaft/gi,'靴筒'],
+    [/hood/gi,'连帽'],
+    [/jacket(s)?/gi,'夹克'],
+    [/parka(s)?/gi,'大衣'],
+    [/pant(s)?/gi,'裤'],
+    [/overall(s)?/gi,'连体服'],
+    [/uniform/gi,'制服'],
+    [/suit(s)?/gi,'套装'],
+    [/sleeveless/gi,'无袖'],
+    [/pocket(s)?/gi,'口袋'],
+    [/side zipper/gi,'侧拉链'],
+    [/battery pack/gi,'电池组'],
+    [/battery/gi,'电池'],
+    [/control unit/gi,'控制模块'],
+    [/camouflage|camouflaged|camo/gi,'迷彩'],
+    [/digital pattern/gi,'数码迷彩'],
+    [/bright/gi,'亮色'],
+    [/yellow-black/gi,'黄黑'],
+    [/orange/gi,'橙色'],
+    [/blue/gi,'蓝色'],
+    [/sleeping bag/gi,'睡袋'],
+    [/tent/gi,'帐篷'],
+    [/work/gi,'工作'],
+    [/inner/gi,'内层'],
+    [/liner/gi,'内胆'],
+    [/balaclava/gi,'头套'],
+    [/socks?/gi,'袜'],
+    [/boots?/gi,'靴'],
+    [/short/gi,'短款'],
+    [/front/gi,'前'],
+    [/back/gi,'后'],
+    [/side/gi,'侧'],
+    [/view/gi,'视图'],
+    [/set/gi,'套装'],
+    [/use of/gi,'使用'],
+    [/in/gi,''],
+    [/the/gi,''],
+    [/and/gi,'与'],
+    [/with/gi,'']
+  ];
   function caption(name){
-    if (CAPTION_OVERRIDES[name]) return CAPTION_OVERRIDES[name];
+    const overrides=currentLang==='zh' ? CAPTION_OVERRIDES_ZH : CAPTION_OVERRIDES_RU;
+    if(overrides[name]) return overrides[name];
     const base=name.replace(/\.[^.]+$/,'').replace(/[_]+/g,' ').trim();
-    return toRussian(base);
+    const multi=currentLang==='zh' ? CAPTION_MULTI_ZH : CAPTION_MULTI_RU;
+    const words=currentLang==='zh' ? CAPTION_WORDS_ZH : CAPTION_WORDS_RU;
+    return buildCaption(base,multi,words,currentLang);
   }
-  function toRussian(text){
+  function buildCaption(text,multi,words,lang){
     let t=' '+text.toLowerCase()+' ';
-    // многословные конструкции — сперва
-    const reps=[
-      [/inside view of/gi,'внутренняя сторона'],
-      [/front and back views?/gi,'вид спереди и сзади'],
-      [/back view/gi,'вид сзади'],
-      [/side view/gi,'вид сбоку'],
-      [/men’s and women’s versions?/gi,'мужская и женская версии'],
-      [/men’s and women’s set/gi,'мужской и женский комплект'],
-      [/with reflective elements/gi,'со светоотражающими элементами'],
-      [/with reflective stripes/gi,'со светоотражающими полосами'],
-      [/with functional pockets/gi,'с функциональными карманами'],
-      [/with high level of protection/gi,'с высоким уровнем защиты'],
-      [/with hood/gi,'с капюшоном'],
-      [/with mounts/gi,'с креплениями'],
-      [/with adjustable straps?/gi,'с регулируемыми лямками'],
-      [/with adjustable strap/gi,'с регулируемым ремешком'],
-      [/with pockets/gi,'с карманами'],
-      [/with heating/gi,'с подогревом'],
-      [/battery packs? with cables for heating clothing and footwear/gi,'аккумуляторные блоки с кабелями для подогрева одежды и обуви'],
-      [/orange and blue/gi,'оранжево‑синий'],
-      [/gazprom neft/gi,'газпром нефть'],
-    ];
-    reps.forEach(([re,ru])=>{ t=t.replace(re, ' '+ru+' '); });
-    // однословные замены
-    const words=[
-      [/heated/gi,'с подогревом'],
-      [/heating/gi,'подогревом'],
-      [/thermal/gi,'термо'],
-      [/insulated/gi,'утепленный'],
-      [/winter/gi,'зимний'],
-      [/leather/gi,'кожаный'],
-      [/protective/gi,'защитные'],
-      [/reinforced/gi,'усиленные'],
-      [/insert(s)?/gi,'вставки'],
-      [/adjustable/gi,'регулируемый'],
-      [/strap(s)?/gi,'ремешок'],
-      [/belt/gi,'пояс'],
-      [/vest(s)?/gi,'жилет'],
-      [/glove(s)?/gi,'перчатки'],
-      [/fingerless/gi,'без пальцев'],
-      [/tactical/gi,'тактические'],
-      [/boot(s)?/gi,'ботинки'],
-      [/high/gi,'высокие'],
-      [/shaft/gi,'голенище'],
-      [/hood/gi,'капюшон'],
-      [/jacket(s)?/gi,'куртка'],
-      [/parka(s)?/gi,'парка'],
-      [/pant(s)?/gi,'брюки'],
-      [/overall(s)?/gi,'комбинезон'],
-      [/uniform/gi,'форменный'],
-      [/suit(s)?/gi,'костюм'],
-      [/vest(s)?/gi,'жилет'],
-      [/pocket(s)?/gi,'карман'],
-      [/side zipper/gi,'боковой молнией'],
-      [/battery/gi,'аккумулятор'],
-      [/sleeping bag/gi,'спальный мешок'],
-      [/tent/gi,'палатка'],
-      [/work/gi,'рабочая'],
-      [/view/gi,'вид'],
-      [/inside/gi,'внутри'],
-      [/set/gi,'комплект'],
-      [/use of/gi,'использование'],
-      [/in/gi,'в'],
-      [/the/gi,''],
-      [/and/gi,'и'],
-      [/with/gi,'с']
-    ];
-    words.forEach(([re,ru])=>{ t=t.replace(re,' '+ru+' '); });
+    multi.forEach(([re,repl])=>{ t=t.replace(re,' '+repl+' '); });
+    words.forEach(([re,repl])=>{ t=t.replace(re,' '+repl+' '); });
     t=t.replace(/\s+/g,' ').trim();
-    // Заглавная буква
-    return t.charAt(0).toLocaleUpperCase('ru-RU') + t.slice(1);
+    if(!t) t=text;
+    if(lang==='ru'){
+      return t.charAt(0).toLocaleUpperCase('ru-RU') + t.slice(1);
+    }
+    if(lang==='zh'){
+      return t.replace(/\s+/g,'').trim();
+    }
+    return t;
   }
 
   // Полный список изображений из public/image (продукция + фоны)
@@ -738,6 +857,30 @@
 
   // ——— Каталог: секции по категориям в нужном порядке ———
   const CATALOG_ORDER=['Жилеты','Перчатки','Куртки','Брюки','Комплекты','Обувь','Аксессуары и палатки','Рабочая одежда (Газпром)','Другое'];
+  const CATEGORY_LABELS={
+    ru:{
+      'Жилеты':'Жилеты',
+      'Перчатки':'Перчатки',
+      'Куртки':'Куртки',
+      'Брюки':'Брюки',
+      'Комплекты':'Комплекты',
+      'Обувь':'Обувь',
+      'Аксессуары и палатки':'Аксессуары и палатки',
+      'Рабочая одежда (Газпром)':'Рабочая одежда (Газпром)',
+      'Другое':'Другое'
+    },
+    zh:{
+      'Жилеты':'马甲',
+      'Перчатки':'手套',
+      'Куртки':'夹克',
+      'Брюки':'裤装',
+      'Комплекты':'套装',
+      'Обувь':'鞋靴',
+      'Аксессуары и палатки':'配件与帐篷',
+      'Рабочая одежда (Газпром)':'工作服（Gazprom）',
+      'Другое':'其他'
+    }
+  };
   function toCatalogName(cat){
     if(cat==='Жилеты и пояса') return 'Жилеты';
     if(cat==='Куртки и парки') return 'Куртки';
@@ -794,7 +937,8 @@
       if(cat==='Рабочая одежда (Газпром)'){
         sec.style.marginTop='clamp(24px, 6vw, 48px)';
       }
-      sec.innerHTML=`<h3 style=\"margin:0 0 12px\">${cat}</h3><div class=\"gallery\" role=\"list\"></div>`;
+      const label=(CATEGORY_LABELS[currentLang] && CATEGORY_LABELS[currentLang][cat]) || cat;
+      sec.innerHTML=`<h3 style=\"margin:0 0 12px\">${label}</h3><div class=\"gallery\" role=\"list\"></div>`;
       const grid=sec.querySelector('.gallery');
       items.forEach(f=>{
         const card=document.createElement('article'); card.className='gcard'; card.setAttribute('role','listitem');
@@ -805,7 +949,223 @@
       root.appendChild(sec);
     });
   }
-  renderCatalog();
+  const TEXT_NODES=Array.from(document.querySelectorAll('[data-i18n]')).filter(el=>!el.dataset.i18nAttr);
+  const ATTR_NODES=Array.from(document.querySelectorAll('[data-i18n-attr]'));
+  const META_DESCRIPTION=document.querySelector('meta[name="description"]');
+  const LANG_STORAGE_KEY='lang';
+  const langButton=document.querySelector('.lang');
+  const UI_TEXT={
+    ru:{
+      'meta-title':'ITS Group — Русская охота. Пилот 30 дней. Арктика −29 °C',
+      'meta-description':'Электроподогрев и утепление для экстремального холода (до −40 °C). Подтверждённые арктические испытания. Пилотные изделия за 30 дней. Private label в Китае.',
+      'skip-link':'Пропустить к содержанию',
+      'brand':'ITS Group / ООО «ИНТЕРТЕХСЕРВИС»',
+      'nav-aria':'Навигация',
+      'nav-about':'Кто мы',
+      'nav-tech':'Технологии',
+      'nav-case':'Кейс',
+      'nav-catalog':'Каталог',
+      'nav-process':'Процесс',
+      'nav-contacts':'Контакты',
+      'nav-pilot':'Пилот 30 дней',
+      'aria-lang-toggle':'Сменить язык',
+      'aria-theme':'Переключить тему',
+      'aria-menu':'Открыть меню',
+      'mobile-nav':'Мобильное меню',
+      'menu-title':'Меню',
+      'aria-close-menu':'Закрыть меню',
+      'hero-title':'Создаём продукцию, которая выдерживает Арктику и усиливает ваш бренд',
+      'hero-lead':'Высокотехнологичные нагревательные и утепляющие изделия для экстремально низких температур (до −40 °C). Private label-производство для «Русская охота» на сертифицированных фабриках в Китае.',
+      'hero-chip-1':'Электроподогрев',
+      'hero-chip-2':'Теплоизоляция',
+      'hero-chip-3':'Антистатик / ОГНЕСТОЙКОСТЬ',
+      'hero-chip-4':'Взрывозащита',
+      'hero-chip-5':'—29 °C / ветер 26 м/с — испытано',
+      'hero-cta':'Запросить пилот за 30 дней',
+      'about-title':'Кто мы',
+      'about-lead-1':'Мы — группа компаний ITS Group, в составе — ООО «ИНТЕРТЕХСЕРВИС». Более 15 лет помогаем промышленности и ритейлу выпускать одежду и обувь для сурового климата: от спецодежды до премиального outdoor.',
+      'about-lead-2':'Наша специализация — решения с электроподогревом и продуманной теплоизоляцией, адаптированные под эксплуатацию в Сибири и на Крайнем Севере.',
+      'about-lead-3':'Private label-производство в Китае • Сертифицированные фабрики • Контроль качества на каждом этапе',
+      'tech-title':'Технологии и экспертиза',
+      'tech-lead':'Продукция создаётся при участии профессора Цюй Юаньфана (曲远方). Фокус: эффективность электроподогрева, равномерность теплопередачи, безопасность.',
+      'tech-card-1-title':'До −40 °C',
+      'tech-card-1-text':'Работа в экстремальном холоде.',
+      'tech-card-2-title':'Взрывозащита и антистатик',
+      'tech-card-2-text':'Версии для опасных зон.',
+      'tech-card-3-title':'Материалы',
+      'tech-card-3-text':'Водо-/ветронепроницаемые, огнестойкие, износостойкие.',
+      'tech-card-4-title':'Долговечность ×1.4',
+      'tech-card-4-text':'Средний прирост ресурса.',
+      'tech-card-5-title':'Стабильность −20/−40 °C',
+      'tech-card-5-text':'Надёжность нагревательных зон и АКБ.',
+      'case-title':'Кейс «Газпром нефть шельф»',
+      'case-lead':'Костюмы и обувь с электроподогревом прошли полевые испытания при −29 °C и ветре 26 м/с — все ключевые показатели защитных свойств подтверждены («хорошо»). При этом вес комплектов снижен на 500–1000 г без потери теплоэффективности.',
+      'case-nuances-title':'Нюансы и решения:',
+      'case-nuance-1':'Следы нефтепродуктов после стирки → добавили масло‑защитное покрытие ткани.',
+      'case-nuance-2':'Уязвимость носков кожаных сапог по насту → внедрили резиновый усиленный носок.',
+      'case-photos':'Фото кейса',
+      'case-photo-1':'Тестирование защитной одежды в Арктике — кадр 1',
+      'case-photo-2':'Тестирование защитной одежды в Арктике — кадр 2',
+      'case-photo-3':'Тестирование защитной одежды в Арктике — кадр 3',
+      'case-photo-4':'Тестирование защитной одежды в Арктике — кадр 4',
+      'case-photo-5':'Тестирование защитной одежды в Арктике — кадр 5',
+      'case-photo-6':'Тестирование защитной одежды в Арктике — кадр 6',
+      'offer-title':'Что можем создать для «Русская охота»',
+      'offer-item-1':'Куртки, жилеты, брюки — утеплённые и с электроподогревом',
+      'offer-item-2':'Обувь, перчатки, палатки, аксессуары с обогревом',
+      'offer-item-3':'Антистатик/огнестойкость, версии с взрывозащитой',
+      'offer-item-4':'Тиражи от пилота до серии • Private label • QC • логистика • постгарантия',
+      'process-title':'Процесс (30 дней до пилота)',
+      'process-aria':'Этапы процесса',
+      'process-step-1-title':'Аналитика',
+      'process-step-1-item-1':'Аудит задач и аудитории',
+      'process-step-1-item-2':'Материалы и конфигурации под климат/сценарии',
+      'process-output-label':'Выход:',
+      'process-step-1-output':'ТЗ и карта коллекции',
+      'process-step-2-title':'Пилот 30 дней',
+      'process-step-2-item-1':'Дизайн → образцы → валидация посадки и тепла',
+      'process-step-2-item-2':'Морозные и износостойкие тесты',
+      'process-step-2-output':'опытные образцы и отчёт',
+      'process-step-3-title':'Производство',
+      'process-step-3-item-1':'Сертифицированные фабрики в Китае',
+      'process-step-3-item-2':'QC, логистика, сервис и ЗИП',
+      'process-step-3-output':'поставка и поддержка',
+      'catalog-title':'Каталог',
+      'cta-title':'Готовы запустить пилот за 30 дней',
+      'cta-lead-1':'Покажем, как коллекция «Русская охота» выглядит на витрине и работает в поле.',
+      'cta-lead-2':'Пожалуйста, пришлите письмо на <a href=\"mailto:info@intertech-service.ru\">info@intertech-service.ru</a> или позвоните по номеру <a href=\"tel:+78002500324\">8-800-250-03-24</a>.',
+      'contacts-title':'Контакты',
+      'contacts-brand':'ITS Group / ООО «ИНТЕРТЕХСЕРВИС»',
+      'contacts-address':'Адрес: г. Краснодар, ул. Кубанская Набережная, д.7, офис 305',
+      'contacts-phone':'Тел.: <a href=\"tel:+78002500324\">8-800-250-03-24</a> • <a href=\"tel:+79181800443\">8-918-180-04-43</a>',
+      'contacts-email':'E-mail: <a href=\"mailto:info@intertech-service.ru\">info@intertech-service.ru</a>',
+      'contacts-site':'Сайт: <a href=\"https://intertech-service.ru\" target=\"_blank\" rel=\"noopener\">intertech-service.ru</a>',
+      'footer-note':'© 2025 ITS Group / ООО «ИНТЕРТЕХСЕРВИС»'
+    },
+    zh:{
+      'meta-title':'ITS Group — «俄罗斯猎人». 30 天试生产。北极地区 −29 °C',
+      'meta-description':'电加热与保温解决方案，可应对极寒环境（至 −40 °C）。北极实测验证。30 天交付试制品。中国工厂 Private Label 生产。',
+      'skip-link':'跳到主要内容',
+      'brand':'ITS Group / ООО «ИНТЕРТЕХСЕРВИС»',
+      'nav-aria':'导航',
+      'nav-about':'关于我们',
+      'nav-tech':'技术',
+      'nav-case':'案例',
+      'nav-catalog':'产品目录',
+      'nav-process':'流程',
+      'nav-contacts':'联系方式',
+      'nav-pilot':'30 天试产',
+      'aria-lang-toggle':'切换语言',
+      'aria-theme':'切换主题',
+      'aria-menu':'打开菜单',
+      'mobile-nav':'移动端菜单',
+      'menu-title':'菜单',
+      'aria-close-menu':'关闭菜单',
+      'hero-title':'我们打造能够抵御北极严寒并提升您品牌力的产品',
+      'hero-lead':'高科技电加热与保温装备，可在极低温环境（最低 −40 °C）稳定工作。我们在中国认证工厂为“俄罗斯猎人”品牌提供 Private Label 生产。',
+      'hero-chip-1':'电加热',
+      'hero-chip-2':'保温隔热',
+      'hero-chip-3':'防静电 / 阻燃',
+      'hero-chip-4':'防爆防护',
+      'hero-chip-5':'−29 °C / 26 m/s 实测通过',
+      'hero-cta':'申请 30 天试产',
+      'about-title':'我们是谁',
+      'about-lead-1':'我们是 ITS Group 集团，旗下包括 ООО «ИНТЕРТЕХСЕРВИС》。15 年来帮助工业与零售客户提供适应严寒气候的服装和鞋靴，从专业工装到高端户外装备。',
+      'about-lead-2':'我们专注于电加热与精密保温方案，可在西伯利亚和极北地区等严苛环境中安全使用。',
+      'about-lead-3':'中国 Private Label 生产 • 认证工厂 • 全流程质量控制',
+      'tech-title':'技术与专家团队',
+      'tech-lead':'产品由曲远方教授联合开发，重点关注加热效率、热量分布均匀性与使用安全。',
+      'tech-card-1-title':'最低 −40 °C',
+      'tech-card-1-text':'极寒环境下可靠运行。',
+      'tech-card-2-title':'防爆与防静电',
+      'tech-card-2-text':'满足危险区域需求。',
+      'tech-card-3-title':'材料',
+      'tech-card-3-text':'防水防风、阻燃、耐磨损。',
+      'tech-card-4-title':'耐用度 ×1.4',
+      'tech-card-4-text':'平均寿命提升 40%。',
+      'tech-card-5-title':'−20/−40 °C 稳定性',
+      'tech-card-5-text':'加热区域与电池均保持可靠。',
+      'case-title':'案例：“Gazprom Neft Shelf”',
+      'case-lead':'带电加热的服装与鞋靴在 −29 °C、26 m/s 大风条件下完成实地测试，所有关键防护指标均获“优秀”评级，同时重量减轻 500–1000 克，保温性能不受影响。',
+      'case-nuances-title':'挑战与解决方案：',
+      'case-nuance-1':'清洗后残留油污 → 使用防油面料涂层。',
+      'case-nuance-2':'皮靴鞋头在冰面易磨损 → 加装橡胶强化鞋头。',
+      'case-photos':'案例照片',
+      'case-photo-1':'北极防护服测试照片 1',
+      'case-photo-2':'北极防护服测试照片 2',
+      'case-photo-3':'北极防护服测试照片 3',
+      'case-photo-4':'北极防护服测试照片 4',
+      'case-photo-5':'北极防护服测试照片 5',
+      'case-photo-6':'北极防护服测试照片 6',
+      'offer-title':'我们能为“俄罗斯猎人”打造的产品',
+      'offer-item-1':'加热或高保温的夹克、马甲与裤装',
+      'offer-item-2':'加热鞋靴、手套、帐篷及配件',
+      'offer-item-3':'防静电 / 阻燃版本，支持防爆需求',
+      'offer-item-4':'从试产到量产 • Private Label • 质检 • 物流 • 售后支持',
+      'process-title':'流程（30 天完成试产）',
+      'process-aria':'流程步骤',
+      'process-step-1-title':'分析阶段',
+      'process-step-1-item-1':'梳理任务与目标受众',
+      'process-step-1-item-2':'依据气候与场景选择材料和结构',
+      'process-output-label':'交付：',
+      'process-step-1-output':'技术任务书与系列规划',
+      'process-step-2-title':'30 天试产',
+      'process-step-2-item-1':'设计 → 样品 → 版型与保温验证',
+      'process-step-2-item-2':'低温与耐磨测试',
+      'process-step-2-output':'试制样品与测试报告',
+      'process-step-3-title':'量产阶段',
+      'process-step-3-item-1':'中国认证工厂生产',
+      'process-step-3-item-2':'质检、物流、售后与备件保障',
+      'process-step-3-output':'交付与持续支持',
+      'catalog-title':'产品目录',
+      'cta-title':'30 天即可启动试产',
+      'cta-lead-1':'我们将展示“俄罗斯猎人”系列在终端展示与野外使用中的表现。',
+      'cta-lead-2':'请发送邮件至 <a href=\"mailto:info@intertech-service.ru\">info@intertech-service.ru</a> 或致电 <a href=\"tel:+78002500324\">8-800-250-03-24</a>。',
+      'contacts-title':'联系方式',
+      'contacts-brand':'ITS Group / ООО «ИНТЕРТЕХСЕРВИС»',
+      'contacts-address':'地址：俄罗斯克拉斯诺达尔市库班河堤街 7 号 305 室',
+      'contacts-phone':'电话：<a href=\"tel:+78002500324\">8-800-250-03-24</a> • <a href=\"tel:+79181800443\">8-918-180-04-43</a>',
+      'contacts-email':'邮箱：<a href=\"mailto:info@intertech-service.ru\">info@intertech-service.ru</a>',
+      'contacts-site':'网站：<a href=\"https://intertech-service.ru\" target=\"_blank\" rel=\"noopener\">intertech-service.ru</a>',
+      'footer-note':'© 2025 ITS Group / ООО «ИНТЕРТЕХСЕРВИС»'
+    }
+  };
+  function applyLanguage(lang){
+    const dict=UI_TEXT[lang] ? UI_TEXT[lang] : UI_TEXT.ru;
+    currentLang=UI_TEXT[lang] ? lang : 'ru';
+    document.documentElement.lang=currentLang==='zh' ? 'zh' : 'ru';
+    if(dict['meta-title']) document.title=dict['meta-title'];
+    if(META_DESCRIPTION && dict['meta-description']) META_DESCRIPTION.setAttribute('content', dict['meta-description']);
+    TEXT_NODES.forEach(el=>{
+      const key=el.dataset.i18n;
+      const value=dict[key];
+      if(value==null) return;
+      if(el.dataset.i18nType==='html') el.innerHTML=value;
+      else el.textContent=value;
+    });
+    ATTR_NODES.forEach(el=>{
+      const key=el.dataset.i18n;
+      const value=dict[key];
+      if(value==null) return;
+      el.dataset.i18nAttr.split(',').forEach(attr=>{
+        const name=attr.trim();
+        if(name) el.setAttribute(name,value);
+      });
+    });
+    if(langButton){
+      langButton.textContent=currentLang==='ru' ? '中文' : 'RU';
+    }
+    renderCatalog();
+  }
+  if(langButton){
+    langButton.addEventListener('click',()=>{
+      const next=currentLang==='ru' ? 'zh' : 'ru';
+      localStorage.setItem(LANG_STORAGE_KEY,next);
+      applyLanguage(next);
+    });
+  }
+  const storedLang=localStorage.getItem(LANG_STORAGE_KEY);
+  applyLanguage(storedLang==='zh' ? 'zh' : 'ru');
 </script>
 </body>
 </html>
